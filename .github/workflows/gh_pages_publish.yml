@@ -1,4 +1,4 @@
-name: gh_pages_update
+name: gh_pages_publish
 
 on:
   push:
