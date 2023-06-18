@@ -1,26 +1,18 @@
-# The Rust Programming Language
+# Bahasa Pemrograman Rust
 
-*by Steve Klabnik and Carol Nichols, with contributions from the Rust Community*
+_oleh Steve Klabnik dan Carol Nichols, dengan kontribusi dari Rust Community_
 
-This version of the text assumes you’re using Rust 1.67.1 (released 2023-02-09)
-or later. See the [“Installation” section of Chapter 1][install]<!-- ignore -->
-to install or update Rust.
+Versi teks ini berasumsi Anda menggunakan Rust 1.67.1 (released 2023-02-09) atau lebih baru. Lihat [bagian "Instalasi" Bab 1][install] untuk menginstal atau memperbarui Rust.
 
-The HTML format is available online at
-[https://doc.rust-lang.org/stable/book/](https://doc.rust-lang.org/stable/book/)
-and offline with installations of Rust made with `rustup`; run `rustup docs
---book` to open.
+Format HTML tersedia online di [https://doc.rust-lang.org/stable/book/](https://doc.rust-lang.org/stable/book/) dan offline dengan instalasi Rust yang dibuat dengan `rustup`; jalankan `rustup docs --book` untuk membuka.
 
-Several community [translations] are also available.
+Beberapa [terjemahan] komunitas juga tersedia.
 
-This text is available in [paperback and ebook format from No Starch
-Press][nsprust].
+Teks ini tersedia dalam [format _paperback_ dan _ebook_ dari No Strach Press][nsprust].
 
 [install]: ch01-01-installation.html
 [editions]: appendix-05-editions.html
 [nsprust]: https://nostarch.com/rust-programming-language-2nd-edition
-[translations]: appendix-06-translation.html
+[terjemahan]: appendix-06-translation.html
 
-> **🚨 Want a more interactive learning experience? Try out a different version
-> of the Rust Book, featuring: quizzes, highlighting, visualizations, and
-> more**: <https://rust-book.cs.brown.edu>
+> **🚨 Ingin pengalaman belajar yang lebih interaktif? Cobalah versi Rust Book yang berbeda, menampilkan: kuis, penyorotan, visualisasi, dan lainnya**: <https://rust-book.cs.brown.edu/>
