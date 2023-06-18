@@ -8,7 +8,7 @@ Repositori ini berisi sumber dari buku "The Rust Programming Language".
 
 [nostarch]: https://nostarch.com/rust-programming-language-2nd-edition
 
-Anda juga dapat membaca buku ini secara online gratis. Silakan lihat buku tersebut yang dikirim dalam rilis Rust [stable], [beta], atau [nighly] terbaru. Ketahuilah bahwa masalah dalam versi tersebut mungkin telah diperbaiki dalam repositori ini, karena rilis tersebut jarang diperbarui.
+Anda juga dapat membaca buku ini secara online gratis. Silakan lihat buku tersebut yang dikirim dalam rilis Rust [stable], [beta], atau [nightly] terbaru. Ketahuilah bahwa masalah dalam versi tersebut mungkin telah diperbaiki dalam repositori ini, karena rilis tersebut jarang diperbarui.
 
 [stable]: https://doc.rust-lang.org/stable/book/
 [beta]: https://doc.rust-lang.org/beta/book/
@@ -16,11 +16,11 @@ Anda juga dapat membaca buku ini secara online gratis. Silakan lihat buku terseb
 
 Lihat [rilis] untu mengunduh hanya kode dari semua daftar kode yang muncul dalam buku.
 
-[releases]: https://github.com/rust-lang/book/releases
+[rilis]: https://github.com/rust-lang/book/releases
 
 ## Persyaratan
 
-Untuk mambangun buku membutuhkan [mdBook], idealnya versi yang sama dengan yang digunkaan rust-lang/rust dalam file ini [this file][rust-mdbook]. Untuk mendapatkannya:
+Untuk mambangun buku membutuhkan [mdBook], idealnya versi yang sama dengan yang digunkaan rust-lang/rust dalam [file ini][rust-mdbook]. Untuk mendapatkannya:
 
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
 [rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
@@ -69,7 +69,7 @@ Untuk menjalankan pengujian:
 $ mdbook test src-id
 ```
 
-## Contributing
+## Berkontribusi
 
 Kami akan senang bantuan Anda! Silakan lihat [CONTRIBUTING.md][contrib] untuk mempelajari tentang jenis kontribuasi yang kami cari.
 
