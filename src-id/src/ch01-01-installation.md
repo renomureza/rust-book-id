@@ -1,8 +1,4 @@
-## Installation
-
-The first step is to install Rust. We’ll download Rust through `rustup`, a
-command line tool for managing Rust versions and associated tools. You’ll need
-an internet connection for the download.
+## Instalasi
 
 Langkah pertama adalah menginstal Rust. Kami akan mengunduh Rust melalui `rustup`, alat baris perintah untuk mengelola versi Rust dan alat terkait. Anda memerlukan koneksi internet untuk mengunduh.
 
