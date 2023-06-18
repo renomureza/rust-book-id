@@ -1,4 +1,4 @@
-# The Rust Programming Language
+# Bahasa Pemrograman Rust
 
 ![Build Status](https://github.com/renomureza/rust-book-id/workflows/CI/badge.svg)
 
