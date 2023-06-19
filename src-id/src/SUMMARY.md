@@ -12,7 +12,7 @@
   - [Hello, World!](ch01-02-hello-world.md)
   - [Hello, Cargo!](ch01-03-hello-cargo.md)
 
-- [Pemrograman Game Menebak](ch02-00-guessing-game-tutorial.md)
+- [Memprogram Game Tebak-tebakan](ch02-00-guessing-game-tutorial.md)
 
 - [Konsep Pemrograman Umum](ch03-00-common-programming-concepts.md)
 
