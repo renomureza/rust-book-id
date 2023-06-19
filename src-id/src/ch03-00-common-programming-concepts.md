@@ -1,23 +1,11 @@
-# Common Programming Concepts
+# Konsep Pemrograman Umum
 
-This chapter covers concepts that appear in almost every programming language
-and how they work in Rust. Many programming languages have much in common at
-their core. None of the concepts presented in this chapter are unique to Rust,
-but we’ll discuss them in the context of Rust and explain the conventions
-around using these concepts.
+Bab ini mencakup konsep yang muncul di hampir setiap bahasa pemrograman dan cara kerjanya di Rust. Banyak bahasa pemrograman memiliki banyak kesamaan pada intinya. Tak satu pun dari konsep yang disajikan dalam bab ini unik untuk Rust, tetapi kami akan membahasnya dalam konteks Rust dan menjelaskan konvensi seputar penggunaan konsep ini.
 
-Specifically, you’ll learn about variables, basic types, functions, comments,
-and control flow. These foundations will be in every Rust program, and learning
-them early will give you a strong core to start from.
+Khususnya, Anda akan belajar tentang variabel, tipe dasar, fungsi, komentar, dan alur kontrol. Fondasi ini akan ada di setiap program Rust, dan mempelajarinya lebih awal akan memberi Anda inti yang kuat untuk memulai.
 
-> #### Keywords
+> #### Kata kunci
 >
-> The Rust language has a set of *keywords* that are reserved for use by the
-> language only, much as in other languages. Keep in mind that you cannot use
-> these words as names of variables or functions. Most of the keywords have
-> special meanings, and you’ll be using them to do various tasks in your Rust
-> programs; a few have no current functionality associated with them but have
-> been reserved for functionality that might be added to Rust in the future. You
-> can find a list of the keywords in [Appendix A][appendix_a]<!-- ignore -->.
+> Bahasa Rust memiliki kumpulan kata kunci yang dicadangkan untuk digunakan oleh bahasa saja, sama seperti bahasa lainnya. Perlu diingat bahwa Anda tidak dapat menggunakan kata-kata ini sebagai nama variabel atau fungsi. Sebagian besar kata kunci memiliki arti khusus, dan Anda akan menggunakannya untuk melakukan berbagai tugas di program Rust Anda; beberapa tidak memiliki fungsionalitas saat ini yang terkait dengannya tetapi telah dicadangkan untuk fungsionalitas yang mungkin ditambahkan ke Rust di masa mendatang. Anda dapat menemukan daftar kata kunci di [Lampiran A][appendix_a].
 
 [appendix_a]: appendix-01-keywords.md
