@@ -24,7 +24,7 @@ Tipe _scalar_ mewakili nilai tunggal. Rust memiliki empat tipe _scalar_ utama: _
 
 Bilangan bulat (_integer_) adalah bilangan tanpa komponen pecahan. Kami menggunakan satu tipe integer di Bab 2, tipe `u32`. Deklarasi tipe ini menunjukkan bahwa nilai yang dikaitkan dengannya harus berupa bilangan bulat yang tidak ditandatangani (_unsigned_) (jenis bilangan bulat yang ditandatangani (_signed_) dimulai dengan `i` alih-alih `u`) yang membutuhkan ruang 32 bit. Tabel 3-1 menunjukkan tipe integer bawaan di Rust. Kita dapat menggunakan salah satu varian ini untuk mendeklarasikan tipe nilai integer.
 
-<span class="caption">Table 3-1: Tip Integer dalam Rust</span>
+<span class="caption">Table 3-1: Tipe Integer dalam Rust</span>
 
 | Length  | Signed  | Unsigned |
 | ------- | ------- | -------- |
