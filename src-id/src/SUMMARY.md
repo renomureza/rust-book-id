@@ -18,7 +18,7 @@
 
   - [Variabel dan Mutabilitas](ch03-01-variables-and-mutability.md)
   - [Tipe Data](ch03-02-data-types.md)
-  - [Funsi](ch03-03-how-functions-work.md)
+  - [Fungsi](ch03-03-how-functions-work.md)
   - [Komentar](ch03-04-comments.md)
   - [Aliran Kontrol](ch03-05-control-flow.md)
 
