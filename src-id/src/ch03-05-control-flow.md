@@ -1,199 +1,136 @@
-## Control Flow
+## Aliran Kontrol
 
-The ability to run some code depending on whether a condition is `true` and to
-run some code repeatedly while a condition is `true` are basic building blocks
-in most programming languages. The most common constructs that let you control
-the flow of execution of Rust code are `if` expressions and loops.
+Kemampuan untuk menjalankan beberapa kode tergantung pada apakah suatu kondisi `true` dan untuk menjalankan beberapa kode berulang kali saat kondisi adalah `true` blok bangunan dasar di sebagian besar bahasa pemrograman. Konstruksi paling umum yang memungkinkan Anda mengontrol aliran eksekusi kode Rust adalah ekspresi `if` dan loop.
 
-### `if` Expressions
+### Ekspresi `if`
 
-An `if` expression allows you to branch your code depending on conditions. You
-provide a condition and then state, “If this condition is met, run this block
-of code. If the condition is not met, do not run this block of code.”
+Ekspresi `if` memungkinkan Anda untuk mencabangkan kode Anda tergantung pada kondisi. Anda memberikan kondisi dan kemudian menyatakan, “Jika kondisi ini terpenuhi, jalankan blok kode ini. Jika syaratnya tidak terpenuhi, jangan jalankan blok kode ini.”
 
-Create a new project called _branches_ in your _projects_ directory to explore
-the `if` expression. In the _src/main.rs_ file, input the following:
+Buat proyek baru bernama _branches_ di direktori _projects_ Anda untuk menjelajahi ekspresi `if`. Di file _src/main.rs_, masukkan yang berikut ini:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-26-if-true/src/main.rs}}
 ```
 
-All `if` expressions start with the keyword `if`, followed by a condition. In
-this case, the condition checks whether or not the variable `number` has a
-value less than 5. We place the block of code to execute if the condition is
-`true` immediately after the condition inside curly brackets. Blocks of code
-associated with the conditions in `if` expressions are sometimes called _arms_,
-just like the arms in `match` expressions that we discussed in the [“Comparing
-the Guess to the Secret Number”][comparing-the-guess-to-the-secret-number]<!--
-ignore --> section of Chapter 2.
+Semua ekspresi `if` dimulai dengan kata kunci `if`, diikuti dengan kondisi. Dalam hal ini, kondisi memeriksa apakah variabel `number` memiliki nilai kurang dari `5` atau tidak. Kami menempatkan blok kode untuk dieksekusi jika kondisi tepat `true` setelah kondisi di dalam kurung kurawal. Blok kode yang terkait dengan kondisi dalam ekspresi terkadang `if` disebut lengan, seperti lengan dalam ekspresi `match` yang telah kita bahas di bagian [“Membandingkan Tebakan dengan Angka Rahasia”][comparing-the-guess-to-the-secret-number] di Bab 2.
 
-Optionally, we can also include an `else` expression, which we chose to do
-here, to give the program an alternative block of code to execute should the
-condition evaluate to `false`. If you don’t provide an `else` expression and
-the condition is `false`, the program will just skip the `if` block and move on
-to the next bit of code.
-
-Try running this code; you should see the following output:
+Opsional, kami juga dapat menyertakan ekspresi `else`, yang kami pilih untuk dilakukan di sini, untuk memberikan program blok kode alternatif untuk dieksekusi jika kondisi dievaluasi menjadi `false`. Jika Anda tidak memberikan ekspresi `else` dan kondisinya adalah `false`, program hanya akan melewatkan blok `if` dan melanjutkan ke bit kode berikutnya.
 
 ```console
 {{#include ../../listings/ch03-common-programming-concepts/no-listing-26-if-true/output.txt}}
 ```
 
-Let’s try changing the value of `number` to a value that makes the condition
-`false` to see what happens:
+Mari kita coba mengubah nilai `number` menjadi nilai yang membuat kondisi `false` untuk melihat apa yang terjadi:
 
 ```rust,ignore
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-27-if-false/src/main.rs:here}}
 ```
 
-Run the program again, and look at the output:
+Jalankan program lagi, dan lihat hasilnya:
 
 ```console
 {{#include ../../listings/ch03-common-programming-concepts/no-listing-27-if-false/output.txt}}
 ```
 
-It’s also worth noting that the condition in this code _must_ be a `bool`. If
-the condition isn’t a `bool`, we’ll get an error. For example, try running the
-following code:
+Perlu diperhatikan juga bahwa kondisi dalam kode ini _harus_ berupa `bool`. Jika kondisinya bukan `bool`, kita akan mendapatkan error. Misalnya, coba jalankan kode berikut:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/src/main.rs}}
 ```
 
-The `if` condition evaluates to a value of `3` this time, and Rust throws an
-error:
+Kondisi `if` dievaluasi ke nilai `3` saat ini, dan Rust melontarkan kesalahan:
 
 ```console
 {{#include ../../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/output.txt}}
 ```
 
-The error indicates that Rust expected a `bool` but got an integer. Unlike
-languages such as Ruby and JavaScript, Rust will not automatically try to
-convert non-Boolean types to a Boolean. You must be explicit and always provide
-`if` with a Boolean as its condition. If we want the `if` code block to run
-only when a number is not equal to `0`, for example, we can change the `if`
-expression to the following:
+Kesalahan menunjukkan bahwa Rust mengharapkan `bool` tetapi mendapat bilangan bulat. Tidak seperti bahasa Ruby dan JavaScript, Rust tidak akan secara otomatis mencoba mengubah tipe non-Boolean menjadi Boolean. Anda harus eksplisit dan selalu menyediakan `if` dengan Boolean sebagai syaratnya. Jika kita ingin blok kode `if` berjalan hanya ketika sebuah angka tidak sama dengan `0`, misalnya, kita dapat mengubah ekspresi `if` menjadi berikut:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-29-if-not-equal-0/src/main.rs}}
 ```
 
-Running this code will print `number was something other than zero`.
+Menjalankan kode ini akan mencetak `number was something other than zero`.
 
-#### Handling Multiple Conditions with `else if`
+#### Menangani Berbagai Kondisi dengan `else if`
 
-You can use multiple conditions by combining `if` and `else` in an `else if`
-expression. For example:
+Anda dapat menggunakan beberapa kondisi dengan menggabungkan `if` dan `else` dalam sebuah ekspresi `else if`. Misalnya:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-30-else-if/src/main.rs}}
 ```
 
-This program has four possible paths it can take. After running it, you should
-see the following output:
+Program ini memiliki empat kemungkinan jalur yang dapat diambil. Setelah menjalankannya, Anda akan melihat output berikut:
 
 ```console
 {{#include ../../listings/ch03-common-programming-concepts/no-listing-30-else-if/output.txt}}
 ```
 
-When this program executes, it checks each `if` expression in turn and executes
-the first body for which the condition evaluates to `true`. Note that even
-though 6 is divisible by 2, we don’t see the output `number is divisible by 2`,
-nor do we see the `number is not divisible by 4, 3, or 2` text from the `else`
-block. That’s because Rust only executes the block for the first `true`
-condition, and once it finds one, it doesn’t even check the rest.
+Saat program ini dijalankan, program ini memeriksa setiap ekspresi `if` secara bergiliran dan mengeksekusi badan pertama yang kondisinya dievaluasi menjadi `true`. Perhatikan bahwa meskipun 6 habis dibagi 2, kita tidak melihat output `number is divisible by 2`, juga tidak melihat teks `number is not divisible by 4, 3, or 2` dari blok `else`. Itu karena Rust hanya mengeksekusi blok untuk kondisi `true` pertama, dan setelah menemukannya, ia bahkan tidak memeriksa sisanya.
 
-Using too many `else if` expressions can clutter your code, so if you have more
-than one, you might want to refactor your code. Chapter 6 describes a powerful
-Rust branching construct called `match` for these cases.
+Menggunakan terlalu banyak ekspresi `else if` dapat mengacaukan kode Anda, jadi jika Anda memiliki lebih dari satu, Anda mungkin ingin memperbaiki kode Anda. Bab 6 menjelaskan konstruksi percabangan Rust yang kuat yang disebut `match` untuk kasus ini.
 
-#### Using `if` in a `let` Statement
+#### Menggunakan `if` dalam Pernyataan `let`
 
-Because `if` is an expression, we can use it on the right side of a `let`
-statement to assign the outcome to a variable, as in Listing 3-2.
+Karena `if` adalah ekspresi, kita dapat menggunakannya di sisi kanan pernyataan `let` untuk menetapkan hasil ke variabel, seperti pada Daftar 3-2.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/listing-03-02/src/main.rs}}
 ```
 
-<span class="caption">Listing 3-2: Assigning the result of an `if` expression
-to a variable</span>
+<span class="caption">Daftar 3-2: Menugaskan hasil ekspresi `if` ke variabel</span>
 
-The `number` variable will be bound to a value based on the outcome of the `if`
-expression. Run this code to see what happens:
+Variabel `number` akan terikat pada nilai sesuai hasil ekspresi `if`. Jalankan kode ini untuk melihat apa yang terjadi:
 
 ```console
 {{#include ../../listings/ch03-common-programming-concepts/listing-03-02/output.txt}}
 ```
 
-Remember that blocks of code evaluate to the last expression in them, and
-numbers by themselves are also expressions. In this case, the value of the
-whole `if` expression depends on which block of code executes. This means the
-values that have the potential to be results from each arm of the `if` must be
-the same type; in Listing 3-2, the results of both the `if` arm and the `else`
-arm were `i32` integers. If the types are mismatched, as in the following
-example, we’ll get an error:
+Ingatlah bahwa blok kode mengevaluasi ekspresi terakhir di dalamnya, dan angka itu sendiri juga merupakan ekspresi. Dalam hal ini, nilai seluruh ekspresi `if` bergantung pada blok kode mana yang dieksekusi. Artinya nilai-nilai yang berpotensi dihasilkan dari masing-masing lengan `if` harus bertipe sama; pada Daftar 3-2, hasil lengan `if` dan `else` adalah `i32` bilangan bulat. Jika tipenya tidak cocok, seperti contoh berikut, kita akan mendapatkan kesalahan:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/src/main.rs}}
 ```
 
-When we try to compile this code, we’ll get an error. The `if` and `else` arms
-have value types that are incompatible, and Rust indicates exactly where to
-find the problem in the program:
+Saat kami mencoba mengkompilasi kode ini, kami akan mendapatkan kesalahan. Lengan `if` and `else` memiliki tipe nilai yang tidak kompatibel, dan Rust menunjukkan dengan tepat di mana menemukan masalah dalam program:
 
 ```console
 {{#include ../../listings/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/output.txt}}
 ```
 
-The expression in the `if` block evaluates to an integer, and the expression in
-the `else` block evaluates to a string. This won’t work because variables must
-have a single type, and Rust needs to know at compile time what type the
-`number` variable is, definitively. Knowing the type of `number` lets the
-compiler verify the type is valid everywhere we use `number`. Rust wouldn’t be
-able to do that if the type of `number` was only determined at runtime; the
-compiler would be more complex and would make fewer guarantees about the code
-if it had to keep track of multiple hypothetical types for any variable.
+Ekspresi di blok `if` dievaluasi ke integer, dan ekspresi di blok `else` dievaluasi ke string. Ini tidak akan berhasil karena variabel harus memiliki satu tipe, dan Rust perlu mengetahui pada waktu kompilasi tipe variabel `number` tersebut, secara definitif. Mengetahui tipe `number` memungkinkan kompiler memverifikasi tipe valid di mana pun kami menggunakan `number`. Rust tidak akan dapat melakukan itu jika tipe dari `number` hanya ditentukan pada saat runtime; kompiler akan lebih kompleks dan akan membuat lebih sedikit jaminan tentang kode jika harus melacak beberapa tipe hipotetis untuk variabel apa pun.
 
-### Repetition with Loops
+### Pengulangan dengan Loop
 
-It’s often useful to execute a block of code more than once. For this task,
-Rust provides several _loops_, which will run through the code inside the loop
-body to the end and then start immediately back at the beginning. To experiment
-with loops, let’s make a new project called _loops_.
+Seringkali berguna untuk mengeksekusi blok kode lebih dari sekali. Untuk tugas ini, Rust menyediakan beberapa loop, yang akan dijalankan melalui kode di dalam loop body sampai akhir dan kemudian segera mulai kembali dari awal. Untuk bereksperimen dengan perulangan, mari buat proyek baru bernama _loops_.
 
-Rust has three kinds of loops: `loop`, `while`, and `for`. Let’s try each one.
+Rust memiliki tiga jenis loop: `loop`, `while`, dan `for`. Mari kita coba masing-masing.
 
-#### Repeating Code with `loop`
+#### Mengulang Kode dengan `loop`
 
-The `loop` keyword tells Rust to execute a block of code over and over again
-forever or until you explicitly tell it to stop.
+Kata kunci `loop` memberi tahu Rust untuk mengeksekusi blok kode berulang kali selamanya atau sampai Anda secara eksplisit menyuruhnya berhenti.
 
-As an example, change the _src/main.rs_ file in your _loops_ directory to look
-like this:
+Sebagai contoh, ubah file _src/main.rs_ di direktori _loops_ Anda menjadi seperti ini:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust,ignore
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-32-loop/src/main.rs}}
 ```
 
-When we run this program, we’ll see `again!` printed over and over continuously
-until we stop the program manually. Most terminals support the keyboard
-shortcut <span class="keystroke">ctrl-c</span> to interrupt a program that is
-stuck in a continual loop. Give it a try:
+Saat kita menjalankan program ini, kita akan melihat `again!` dicetak terus menerus sampai kita menghentikan program secara manual. Sebagian besar terminal mendukung pintasan keyboard <span class="keystroke">ctrl-c</span> untuk menginterupsi program yang macet terus-menerus. Cobalah:
 
 <!-- manual-regeneration
 cd listings/ch03-common-programming-concepts/no-listing-32-loop
@@ -213,177 +150,107 @@ again!
 ^Cagain!
 ```
 
-The symbol `^C` represents where you pressed <span
-class="keystroke">ctrl-c</span>. You may or may not see the word `again!`
-printed after the `^C`, depending on where the code was in the loop when it
-received the interrupt signal.
+Simbol `^C` mewakili tempat Anda menekan <span class="keystroke">ctrl-c</span>. Anda mungkin atau mungkin tidak melihat kata `again!` yang dicetak setelah `^C`, tergantung di mana kode berada di loop saat menerima sinyal interupsi.
 
-Fortunately, Rust also provides a way to break out of a loop using code. You
-can place the `break` keyword within the loop to tell the program when to stop
-executing the loop. Recall that we did this in the guessing game in the
-[“Quitting After a Correct Guess”][quitting-after-a-correct-guess]<!-- ignore
---> section of Chapter 2 to exit the program when the user won the game by
-guessing the correct number.
+Untungnya, Rust juga menyediakan cara untuk keluar dari loop menggunakan kode. Anda dapat menempatkan kata kunci `break` di dalam loop untuk memberi tahu program kapan harus berhenti menjalankan loop. Ingatlah bahwa kita melakukan ini dalam permainan tebak-tebakan di bagian “Berhenti Setelah Menebak dengan Benar” [“Quitting After a Correct Guess”][quitting-after-a-correct-guess] pada Bab 2 untuk keluar dari program saat pengguna memenangkan permainan dengan menebak angka yang benar.
 
-We also used `continue` in the guessing game, which in a loop tells the program
-to skip over any remaining code in this iteration of the loop and go to the
-next iteration.
+Kami juga menggunakan `continue` dalam permainan tebak-tebakan, yang dalam satu loop memberi tahu program untuk melewati kode yang tersisa dalam iterasi loop ini dan melanjutkan ke iterasi berikutnya.
 
-#### Returning Values from Loops
+#### Mengembalikan Nilai dari Loop
 
-One of the uses of a `loop` is to retry an operation you know might fail, such
-as checking whether a thread has completed its job. You might also need to pass
-the result of that operation out of the loop to the rest of your code. To do
-this, you can add the value you want returned after the `break` expression you
-use to stop the loop; that value will be returned out of the loop so you can
-use it, as shown here:
+Salah satu kegunaan `loop` adalah mencoba kembali operasi yang Anda tahu mungkin gagal, seperti memeriksa apakah _thread_ telah menyelesaikan tugasnya. Anda mungkin juga perlu meneruskan hasil operasi itu keluar dari loop ke seluruh kode Anda. Untuk melakukan ini, Anda bisa menambahkan nilai yang ingin Anda kembalikan setelah ekspresi `break` yang Anda gunakan untuk menghentikan perulangan; nilai itu akan dikembalikan dari loop sehingga Anda dapat menggunakannya, seperti yang ditunjukkan di sini:
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-33-return-value-from-loop/src/main.rs}}
 ```
 
-Before the loop, we declare a variable named `counter` and initialize it to
-`0`. Then we declare a variable named `result` to hold the value returned from
-the loop. On every iteration of the loop, we add `1` to the `counter` variable,
-and then check whether the `counter` is equal to `10`. When it is, we use the
-`break` keyword with the value `counter * 2`. After the loop, we use a
-semicolon to end the statement that assigns the value to `result`. Finally, we
-print the value in `result`, which in this case is `20`.
+Sebelum loop, kami mendeklarasikan variabel bernama `counter` dan menginisialisasi ke `0`. Kemudian kami mendeklarasikan variabel bernama `result` untuk menampung nilai yang dikembalikan dari loop. Pada setiap iterasi loop, kita menambahkan `1` variabel counter, lalu memeriksa apakah `counter` sama dengan `10`. Saat itu, kami menggunakan kata kunci `break` dengan nilai `counter * 2`. Setelah perulangan, kita menggunakan titik koma untuk mengakhiri pernyataan yang menetapkan nilai ke `result`. Terakhir, kami mencetak nilai dalam `result`, yang dalam hal ini adalah `20`.
 
-#### Loop Labels to Disambiguate Between Multiple Loops
+#### Label Loop untuk Disambiguasi Antara Beberapa Loop
 
-If you have loops within loops, `break` and `continue` apply to the innermost
-loop at that point. You can optionally specify a _loop label_ on a loop that
-you can then use with `break` or `continue` to specify that those keywords
-apply to the labeled loop instead of the innermost loop. Loop labels must begin
-with a single quote. Here’s an example with two nested loops:
+Jika Anda memiliki loop di dalam loop, `break` dan `continue` diterapkan ke loop terdalam pada saat itu. Secara opsional, Anda dapat menentukan _label loop_ pada loop yang kemudian dapat Anda gunakan dengan `break` atau `continue` untuk menentukan bahwa kata kunci tersebut berlaku untuk loop berlabel, bukan loop terdalam. Label loop harus dimulai dengan kutip tunggal. Berikut adalah contoh dengan dua loop bersarang:
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/src/main.rs}}
 ```
 
-The outer loop has the label `'counting_up`, and it will count up from 0 to 2.
-The inner loop without a label counts down from 10 to 9. The first `break` that
-doesn’t specify a label will exit the inner loop only. The `break
-'counting_up;` statement will exit the outer loop. This code prints:
+Loop luar memiliki label `'counting_up`, dan akan menghitung dari 0 hingga 2. Loop dalam tanpa label menghitung mundur dari 10 hingga 9. `break` pertama yang tidak menentukan label hanya akan keluar dari loop di dalam. Pernyataan `break 'counting_up;` akan keluar dari loop luar. Kode ini mencetak:
 
 ```console
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/output.txt}}
 ```
 
-#### Conditional Loops with `while`
+#### Loop Bersyarat dengan `while`
 
-A program will often need to evaluate a condition within a loop. While the
-condition is `true`, the loop runs. When the condition ceases to be `true`, the
-program calls `break`, stopping the loop. It’s possible to implement behavior
-like this using a combination of `loop`, `if`, `else`, and `break`; you could
-try that now in a program, if you’d like. However, this pattern is so common
-that Rust has a built-in language construct for it, called a `while` loop. In
-Listing 3-3, we use `while` to loop the program three times, counting down each
-time, and then, after the loop, print a message and exit.
+Suatu program seringkali perlu mengevaluasi suatu kondisi dalam satu loop. Saat kondisinya `true`, loop berjalan. Ketika kondisi berhenti menjadi `true`, program memanggil `break`, menghentikan perulangan. Dimungkinkan untuk menerapkan perilaku seperti ini menggunakan kombinasi `loop`, `if`, `else`, dan `break`; Anda dapat mencobanya sekarang dalam sebuah program, jika Anda mau. Namun, pola ini sangat umum sehingga Rust memiliki konstruksi bahasa bawaan untuknya, yang disebut loop `while`. Dalam Daftar 3-3, kami menggunakan `while` untuk mengulang program tiga kali, menghitung mundur setiap iterasi, dan kemudian, setelah pengulangan, cetak pesan dan keluar.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/listing-03-03/src/main.rs}}
 ```
 
-<span class="caption">Listing 3-3: Using a `while` loop to run code while a
-condition holds true</span>
+<span class="caption">Daftar 3-3: Menggunakan perulangan `while` untuk menjalankan kode saat kondisi benar</span>
 
-This construct eliminates a lot of nesting that would be necessary if you used
-`loop`, `if`, `else`, and `break`, and it’s clearer. While a condition
-evaluates to `true`, the code runs; otherwise, it exits the loop.
+Konstruk ini menghilangkan banyak sarang yang diperlukan jika Anda menggunakan `loop`, `if`, `else`, dan `break`, dan lebih jelas. Saat kondisi bernilai `true`, kode berjalan; jika tidak, itu keluar dari loop.
 
-#### Looping Through a Collection with `for`
+#### Pengulangan melalui Koleksi dengan `for`
 
-You can choose to use the `while` construct to loop over the elements of a
-collection, such as an array. For example, the loop in Listing 3-4 prints each
-element in the array `a`.
+Anda dapat memilih untuk menggunakan konstruk `while` untuk mengulang elemen koleksi, seperti array. Sebagai contoh, loop pada Daftar 3-4 mencetak setiap elemen dalam array `a`.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/listing-03-04/src/main.rs}}
 ```
 
-<span class="caption">Listing 3-4: Looping through each element of a collection
-using a `while` loop</span>
+<span class="caption">Daftar 3-4: Mengulang setiap elemen koleksi menggunakan loop `while`</span>
 
-Here, the code counts up through the elements in the array. It starts at index
-`0`, and then loops until it reaches the final index in the array (that is,
-when `index < 5` is no longer `true`). Running this code will print every
-element in the array:
+Di sini, kode dihitung melalui elemen-elemen dalam array. Ini dimulai pada index `0`, dan kemudian berulang hingga mencapai indeks terakhir dalam array (yaitu, ketika `index < 5` tidak lagi `true`). Menjalankan kode ini akan mencetak setiap elemen dalam array:
 
 ```console
 {{#include ../../listings/ch03-common-programming-concepts/listing-03-04/output.txt}}
 ```
 
-All five array values appear in the terminal, as expected. Even though `index`
-will reach a value of `5` at some point, the loop stops executing before trying
-to fetch a sixth value from the array.
+Kelima nilai array muncul di terminal, seperti yang diharapkan. Meskipun `index` akan mencapai nilai `5` di beberapa titik, loop berhenti mengeksekusi sebelum mencoba mengambil nilai keenam dari array.
 
-However, this approach is error prone; we could cause the program to panic if
-the index value or test condition is incorrect. For example, if you changed the
-definition of the `a` array to have four elements but forgot to update the
-condition to `while index < 4`, the code would panic. It’s also slow, because
-the compiler adds runtime code to perform the conditional check of whether the
-index is within the bounds of the array on every iteration through the loop.
+Namun, pendekatan ini rawan kesalahan; dapat menyebabkan program kita menjadi panik jika nilai indeks atau kondisi pengujian salah. Misalnya, jika Anda mengubah definisi array `a` menjadi empat elemen tetapi lupa memperbarui kondisinya menjadi `while index < 4`, kode akan panik. Ini juga lambat, karena kompiler menambahkan kode runtime untuk melakukan pemeriksaan kondisional apakah indeks berada dalam batas array pada setiap iterasi melalui loop.
 
-As a more concise alternative, you can use a `for` loop and execute some code
-for each item in a collection. A `for` loop looks like the code in Listing 3-5.
+Sebagai alternatif yang lebih ringkas, Anda bisa menggunakan perulangan `for` dan mengeksekusi beberapa kode untuk setiap item dalam koleksi. Loop `for` terlihat seperti kode pada Daftar 3-5.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/listing-03-05/src/main.rs}}
 ```
 
-<span class="caption">Listing 3-5: Looping through each element of a collection
-using a `for` loop</span>
+<span class="caption">Daftar 3-5: Mengulang setiap elemen koleksi menggunakan loop `for`</span>
 
-When we run this code, we’ll see the same output as in Listing 3-4. More
-importantly, we’ve now increased the safety of the code and eliminated the
-chance of bugs that might result from going beyond the end of the array or not
-going far enough and missing some items.
+Saat kita menjalankan kode ini, kita akan melihat output yang sama seperti pada Daftar 3-4. Lebih penting lagi, kami sekarang telah meningkatkan keamanan kode dan menghilangkan kemungkinan bug yang mungkin dihasilkan dari melampaui akhir array atau tidak cukup jauh dan kehilangan beberapa item.
 
-Using the `for` loop, you wouldn’t need to remember to change any other code if
-you changed the number of values in the array, as you would with the method
-used in Listing 3-4.
+Dengan menggunakan `for`, Anda tidak perlu mengingat untuk mengubah kode lain jika Anda mengubah jumlah nilai dalam array, seperti yang Anda lakukan dengan metode yang digunakan pada Daftar 3-4.
 
-The safety and conciseness of `for` loops make them the most commonly used loop
-construct in Rust. Even in situations in which you want to run some code a
-certain number of times, as in the countdown example that used a `while` loop
-in Listing 3-3, most Rustaceans would use a `for` loop. The way to do that
-would be to use a `Range`, provided by the standard library, which generates
-all numbers in sequence starting from one number and ending before another
-number.
+Keamanan dan keringkasan `for` menjadikannya konstruksi loop yang paling umum digunakan di Rust. Bahkan dalam situasi di mana Anda ingin menjalankan beberapa kode beberapa kali, seperti dalam contoh hitung mundur yang menggunakan perulangan `while` di Daftar 3-3, kebanyakan Rustacean akan menggunakan perulangan `for`. Cara melakukannya adalah dengan menggunakan `Range`, yang disediakan oleh pustaka standar, yang menghasilkan semua angka secara berurutan mulai dari satu angka dan diakhiri sebelum angka lainnya.
 
-Here’s what the countdown would look like using a `for` loop and another method
-we’ve not yet talked about, `rev`, to reverse the range:
+Berikut tampilan hitungan mundur menggunakan perulangan `for` dan metode lain yang belum kita bicarakan, `rev`, untuk membalikkan rentang:
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Nama file: src/main.rs</span>
 
 ```rust
 {{#rustdoc_include ../../listings/ch03-common-programming-concepts/no-listing-34-for-range/src/main.rs}}
 ```
 
-This code is a bit nicer, isn’t it?
+Kode ini sedikit lebih bagus, bukan?
 
-## Summary
+## Ringkasan
 
-You made it! This was a sizable chapter: you learned about variables, scalar
-and compound data types, functions, comments, `if` expressions, and loops! To
-practice with the concepts discussed in this chapter, try building programs to
-do the following:
+Anda berhasil! Ini adalah bab yang cukup besar: Anda belajar tentang variabel, tipe data skalar dan _compound_, fungsi, komentar, ekspresi `if`, dan loop! Untuk berlatih dengan konsep yang dibahas dalam bab ini, cobalah membuat program untuk melakukan hal berikut:
 
-- Convert temperatures between Fahrenheit and Celsius.
-- Generate the *n*th Fibonacci number.
-- Print the lyrics to the Christmas carol “The Twelve Days of Christmas,”
-  taking advantage of the repetition in the song.
+- Mengkonversi suhu antara Fahrenheit dan Celsius.
+- Hasilkan angka Fibonacci ke-_n_ .
+- Cetak lirik lagu Natal “The Twelve Days of Christmas”, memanfaatkan pengulangan dalam lagu tersebut.
 
-When you’re ready to move on, we’ll talk about a concept in Rust that _doesn’t_
-commonly exist in other programming languages: ownership.
+Saat Anda siap untuk melanjutkan, kita akan berbicara tentang konsep di Rust yang tidak umum ada dalam bahasa pemrograman lain: kepemilikan (_ownership_).
 
-[comparing-the-guess-to-the-secret-number]: ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
-[quitting-after-a-correct-guess]: ch02-00-guessing-game-tutorial.html#quitting-after-a-correct-guess
+[comparing-the-guess-to-the-secret-number]: ch02-00-guessing-game-tutorial.html#membandingkan-tebakan-dengan-angka-rahasia
+[quitting-after-a-correct-guess]: ch02-00-guessing-game-tutorial.html#berhenti-setelah-tebakan-yang-benar
