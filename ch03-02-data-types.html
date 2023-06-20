@@ -1,0 +1,417 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Tipe Data - Bahasa Pemrograman Rust</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferris.css">
+        <link rel="stylesheet" href="theme/2018-edition.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Bahasa Pemrograman Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Kata Pengantar</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Perkenalan</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Memulai</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Instalasi</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Hello, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Memprogram Game Tebak-tebakan</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Konsep Pemrograman Umum</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Variabel dan Mutabilitas</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html" class="active"><strong aria-hidden="true">3.2.</strong> Tipe Data</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> Fungsi</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Komentar</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Aliran Kontrol</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Memahami Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> Apa itu Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> Reference dan Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> Tipe Slice</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> Menggunakan Struct untuk Menyusun Data Terkait</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Mendefinisikan dan Instansiasi Struct</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> Contoh Program Menggunakan Struct</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Sintaks Method</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enum dan Pencocokan Pola</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Mendefinisikan Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> Konstruk Aliran Kontrol match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> Aliran Kontrol Ringkas dengan if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Mengelola Proyek yang Berkembang dengan Packages, Crates, dan Modul</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Packages dan Crates</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Mendefinisikan Modul untuk Menongtrol Ruang Lingkup dan Privasi</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Jalur untuk Merujuk ke Item di Pohon Modul</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> Membawa Jalur ke Cakupan dengan Kata Kunci use</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Memisahkan Modul menjadi File yang Berbeda</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Koleksi Umum</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Menyimpan Daftar Nilai dengan Vector</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> Menyimpan Teks UTF-8 Encoded dengan String</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> Menyimpan Kunci dengan Nilai Terkait di Hash Map</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Penanganan Kesalahan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> Kesalahan yang Tidak Dapat Dipulihkan dengan panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Kesalahan yang Dapat Dipulihkan dengan Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> panic! atau jangan panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Tipe Generik, Trait, dan Lifetime</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Tipe Data Generik</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Trait: Mendefinisikan Perilaku Bersama</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Memvalidasi Reference dengan Lifetime</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Menulis Tes Otomatis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Cara Menulis Tes</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Mengontrol Bagaiaman Tes Dijalankan</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Organisasi Tes</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> Projek I/O: Membangun Program Baris Perintah</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Menerima Argumen Baris Perintah</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Membaca File</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Refactoring untuk Meningkatkan Modularitas dan Penanganan Kesalahan</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Mengembangkan Fungsionalitas Library dengan Test Driven Development</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Bekerja dengan Environment Variable</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Menulis Pesan Kesalahan ke Standard Error Alih-alih Standard Output</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Fitur Bahasa Fungsional: Iterator dan Closure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closure: Fungsi Anonim yang Menangkap Lingkungannya</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Memproses Serangkaian Item dengan Iterator</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Meningkatkan Proyek I/O Kami</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Membandingkan Performa: Loop vs Iterator</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> Lebih Lanjut Tentang Cargo dan Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Menyesuaikan Build dengan Profil Rilis</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Menerbitkan Crate ke Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Ruang Kerja Cargo</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Menginstal Binari dari Crates.io dengan cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Memperpanjang Cargo dengan Perintah Khusus</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Smart Pointer</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Menggunakan Box&lt;T&gt; untuk Menunjuk ke Data di Heap</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Memperlakukan Smart Pointer Seperti Reference Biasa dengan Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Menjalankan Kode pada Pembersihan dengan Trait Drop</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Rc&lt;T&gt;, Smart Pointer Reference Terhitung</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; dan Pola Mutabilitas Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Siklus Reference Dapat Membocorkan Memori</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Konkurensi Tanpa Takut</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> Menggunakan Thread untuk Menjalankan Kode secara Bersamaan</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Menggunakan Message Passing untuk Mentransfer Data Antar Thread</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Konkurensi Shared-State</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Konkurensi yang Dapat Diperluas dengan Trait Sync dan Send</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> Fitur Pemrograman Berorientasi Objek dari Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-what-is-oo.html"><strong aria-hidden="true">17.1.</strong> Karakteristik Bahasa Berorientasi Objek</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> Menggunakan Objek Trait yang Memungkinkan Nilai dari Berbagai Tipe</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> Menerapkan Pola Desain Berorientasi Objek</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Pola dan Pencocokan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-all-the-places-for-patterns.html"><strong aria-hidden="true">18.1.</strong> Semua Tempat Pola Dapat Digunakan</a></li><li class="chapter-item expanded "><a href="ch18-02-refutability.html"><strong aria-hidden="true">18.2.</strong> Sanggahan: Apakah suatu Pola Mungkin Gagal Mencocokkan</a></li><li class="chapter-item expanded "><a href="ch18-03-pattern-syntax.html"><strong aria-hidden="true">18.3.</strong> Sintaks Pola</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-advanced-features.html"><strong aria-hidden="true">19.</strong> Fitur Lanjutan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-unsafe-rust.html"><strong aria-hidden="true">19.1.</strong> Unsafe Rust</a></li><li class="chapter-item expanded "><a href="ch19-03-advanced-traits.html"><strong aria-hidden="true">19.2.</strong> Trait Lanjutan</a></li><li class="chapter-item expanded "><a href="ch19-04-advanced-types.html"><strong aria-hidden="true">19.3.</strong> Tipe Lanjutan</a></li><li class="chapter-item expanded "><a href="ch19-05-advanced-functions-and-closures.html"><strong aria-hidden="true">19.4.</strong> Fungsi Lanjutan dan Closure</a></li><li class="chapter-item expanded "><a href="ch19-06-macros.html"><strong aria-hidden="true">19.5.</strong> Makro</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-final-project-a-web-server.html"><strong aria-hidden="true">20.</strong> Tugas Akhir: Membangun Server Web Multithreaded</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-single-threaded.html"><strong aria-hidden="true">20.1.</strong> Membangun Server Web Single-Threaded</a></li><li class="chapter-item expanded "><a href="ch20-02-multithreaded.html"><strong aria-hidden="true">20.2.</strong> Mengubah Server Single-Threaded ke Server Multithreaded</a></li><li class="chapter-item expanded "><a href="ch20-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">20.3.</strong> Shutdown dan Pembersihan Anggun</a></li></ol></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Lampiran</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> A - Kata Kunci</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> B - Operator dan Simbol</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> C - Derivable Trait</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">21.4.</strong> D - Alat Pengembangan yang Berguna</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">21.5.</strong> E - Edisi</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">21.6.</strong> F - Terjemahan Buku</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.7.</strong> G - Bagaimana Rust Dibuat dan “Nightly Rust”</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Bahasa Pemrograman Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/renomureza/rust-book-id" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="tipe-data"><a class="header" href="#tipe-data">Tipe Data</a></h2>
+<p>Setiap nilai di Rust memiliki tipe data tertentu, yang memberi tahu Rust jenis data apa yang ditentukan sehingga Rust mengetahui cara bekerja dengan data tersebut. Kita akan melihat dua himpunan bagian tipe data: <em>scalar</em> dan <em>compound</em>.</p>
+<p>Perlu diingat bahwa Rust adalah bahasa <em>statically typed</em>, yang berarti ia harus mengetahui tipe semua variabel pada waktu kompilasi. Kompiler biasanya dapat menyimpulkan tipe apa yang ingin kita gunakan berdasarkan nilai dan bagaimana kita menggunakannya. Dalam kasus ketika banyak tipe dimungkinkan, seperti ketika kita mengonversi <code>String</code> ke tipe numerik menggunakan <code>parse</code> di bagian <a href="ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number">“Membandingkan Tebakan dengan Angka Rahasia”</a> di Bab 2, kita harus menambahkan anotasi tipe, seperti ini:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let guess: u32 = &quot;42&quot;.parse().expect(&quot;Not a number!&quot;);
+<span class="boring">}
+</span></code></pre></pre>
+<p>Jika kami tidak menambahkan anotasi tipe <code>: u32</code> yang ditunjukkan pada kode sebelumnya, Rust akan menampilkan kesalahan berikut, yang berarti kompiler memerlukan lebih banyak informasi dari kami untuk mengetahui tipe yang ingin kami gunakan:</p>
+<pre><code class="language-console">$ cargo build
+   Compiling no_type_annotations v0.1.0 (file:///projects/no_type_annotations)
+error[E0282]: type annotations needed
+ --&gt; src/main.rs:2:9
+  |
+2 |     let guess = &quot;42&quot;.parse().expect(&quot;Not a number!&quot;);
+  |         ^^^^^
+  |
+help: consider giving `guess` an explicit type
+  |
+2 |     let guess: _ = &quot;42&quot;.parse().expect(&quot;Not a number!&quot;);
+  |              +++
+
+For more information about this error, try `rustc --explain E0282`.
+error: could not compile `no_type_annotations` due to previous error
+</code></pre>
+<p>Anda akan melihat beragam jenis anotasi untuk tipe data lainnya.</p>
+<h3 id="tipe-scalar"><a class="header" href="#tipe-scalar">Tipe Scalar</a></h3>
+<p>Tipe <em>scalar</em> mewakili nilai tunggal. Rust memiliki empat tipe <em>scalar</em> utama: <em>integer</em>, <em>floating-point</em>, Boolean, dan karakter. Anda mungkin mengenali ini dari bahasa pemrograman lain. Mari lompat ke cara kerjanya di Rust.</p>
+<h4 id="tipe-integer"><a class="header" href="#tipe-integer">Tipe Integer</a></h4>
+<p>Bilangan bulat (<em>integer</em>) adalah bilangan tanpa komponen pecahan. Kami menggunakan satu tipe integer di Bab 2, tipe <code>u32</code>. Deklarasi tipe ini menunjukkan bahwa nilai yang dikaitkan dengannya harus berupa bilangan bulat yang tidak ditandatangani (<em>unsigned</em>) (jenis bilangan bulat yang ditandatangani (<em>signed</em>) dimulai dengan <code>i</code> alih-alih <code>u</code>) yang membutuhkan ruang 32 bit. Tabel 3-1 menunjukkan tipe integer bawaan di Rust. Kita dapat menggunakan salah satu varian ini untuk mendeklarasikan tipe nilai integer.</p>
+<p><span class="caption">Table 3-1: Tipe Integer dalam Rust</span></p>
+<table><thead><tr><th>Length</th><th>Signed</th><th>Unsigned</th></tr></thead><tbody>
+<tr><td>8-bit</td><td><code>i8</code></td><td><code>u8</code></td></tr>
+<tr><td>16-bit</td><td><code>i16</code></td><td><code>u16</code></td></tr>
+<tr><td>32-bit</td><td><code>i32</code></td><td><code>u32</code></td></tr>
+<tr><td>64-bit</td><td><code>i64</code></td><td><code>u64</code></td></tr>
+<tr><td>128-bit</td><td><code>i128</code></td><td><code>u128</code></td></tr>
+<tr><td>arch</td><td><code>isize</code></td><td><code>usize</code></td></tr>
+</tbody></table>
+<p>Setiap varian bisa <em>signed</em> atau <em>unsigned</em> dan memiliki ukuran eksplisit. Bertanda tangan dan tidak bertanda mengacu pada apakah angka itu mungkin negatif — dengan kata lain, apakah angka tersebut perlu diberi tanda (<em>signed</em>) atau apakah angka itu hanya akan selalu positif dan oleh karena itu dapat direpresentasikan tanpa tanda (<em>unsigned</em>). Ini seperti menulis angka di atas kertas: ketika tanda itu penting, sebuah angka ditunjukkan dengan tanda plus atau minus; namun, jika aman untuk menganggap angkanya positif, angka itu ditampilkan tanpa tanda. Nomor yang ditandatangani disimpan menggunakan representasi <a href="https://en.wikipedia.org/wiki/Two%27s_complement">komplemen dua</a>.</p>
+<p>Setiap varian <em>signed</em> dapat menyimpan angka dari -(2<sup>n - 1</sup>) hingga 2<sup>n -
+1</sup> - 1 inklusif, di mana <code>n</code> adalah jumlah bit yang digunakan varian. Jadi <code>i8</code> menyimpan angka dari -(2<sup>7</sup>) hingga 2<sup>7</sup> - 1, yang sama dengan -128 hingga 127. Varian <em>unsigned</em> dapat menyimpan angka dari 0 hingga 2<sup>n</sup> - 1, jadi <code>u8</code> menyimpan angka dari 0 hingga 2<sup>8</sup> - 1, yang sama dengan 0 sampai 255.</p>
+<p>Selain itu, tipe <code>isize</code> dan <code>usize</code> bergantung pada arsitektur komputer tempat program Anda berjalan, yang ditunjukkan dalam tabel sebagai “arch”: 64 bit jika Anda menggunakan arsitektur 64 bit dan 32 bit jika Anda menggunakan arsitektur 32-bit.</p>
+<p>Anda dapat menulis integer literal dalam salah satu bentuk yang ditunjukkan pada Tabel 3-2. Perhatikan bahwa angka literal yang bisa berupa beberapa tipe numerik memungkinkan tipe sufiks, seperti <code>57u8</code>, untuk menunjukkan tipenya. Angka literal juga dapat menggunakan <code>_</code> sebagai pemisah visual untuk membuat angka lebih mudah dibaca, seperti <code>1_000</code>, yang akan memiliki nilai yang sama seperti jika Anda telah menentukan <code>1000</code>.</p>
+<p><span class="caption">Table 3-2: Literal Integer di Rust</span></p>
+<table><thead><tr><th>Number literals</th><th>Example</th></tr></thead><tbody>
+<tr><td>Decimal</td><td><code>98_222</code></td></tr>
+<tr><td>Hex</td><td><code>0xff</code></td></tr>
+<tr><td>Octal</td><td><code>0o77</code></td></tr>
+<tr><td>Binary</td><td><code>0b1111_0000</code></td></tr>
+<tr><td>Byte (<code>u8</code> only)</td><td><code>b'A'</code></td></tr>
+</tbody></table>
+<p>Jadi, bagaimana Anda tahu jenis bilangan bulat mana yang digunakan? Jika Anda tidak yakin, default Rust umumnya adalah tempat yang baik untuk memulai: tipe integer default ke <code>i32</code>. Situasi utama di mana Anda akan menggunakan <code>isize</code> atau <code>usize</code> saat mengindeks semacam koleksi.</p>
+<blockquote>
+<h5 id="integer-overflow"><a class="header" href="#integer-overflow">Integer Overflow</a></h5>
+<p>Misalkan Anda memiliki variabel bertipe <code>u8</code> yang dapat menampung nilai antara 0 hingga 255. Jika Anda mencoba mengubah variabel ke nilai di luar rentang tersebut, seperti 256, akan terjadi <em>integer overflow</em>, yang dapat mengakibatkan salah satu dari dua perilaku. Saat Anda mengompilasi dalam mode debug, Rust menyertakan pemeriksaan untuk <em>integer overflow</em> yang menyebabkan program Anda panik saat runtime jika perilaku ini terjadi. Rust menggunakan istilah panik saat program keluar dengan kesalahan; kita akan membahas kepanikan secara lebih mendalam di bagian “Kesalahan yang Tidak Dapat Dipulihkan dengan panic!” <a href="ch09-01-unrecoverable-errors-with-panic.html">“Kesalahan yang Tidak Dapat Dipulihkan dengan <code>panic!</code>”</a> di Bab 9.</p>
+<p>Saat Anda mengkompilasi dalam mode rilis dengan bendera <code>--release</code>, Rust tidak menyertakan pemeriksaan untuk <em>integer overflow</em> yang menyebabkan kepanikan. Sebagai gantinya, jika terjadi <em>overflow</em>, Rust melakukan <em>two's complement wrapping</em>. Singkatnya, nilai-nilai yang lebih besar dari nilai maksimum yang dapat disimpan oleh tipe &quot;membungkus&quot; hingga nilai minimum yang dapat dipegang oleh tipe tersebut. Dalam kasus <code>u8</code>, nilai 256 menjadi 0, nilai 257 menjadi 1, dan seterusnya. Program tidak akan panik, tetapi variabel akan memiliki nilai yang mungkin tidak seperti yang Anda harapkan. Mengandalkan perilaku pembungkusan <em>integer overflow</em> dianggap sebagai kesalahan.</p>
+<p>Untuk secara eksplisit menangani kemungkinan <em>overflow</em>, Anda dapat menggunakan rangkaian metode berikut yang disediakan oleh pustaka standar untuk tipe numerik primitif:</p>
+<ul>
+<li>Bungkus semua mode dengan method <code>wrapping_*</code>, seperti <code>wrapping_add</code>.</li>
+<li>Kembalikan nilai <code>None</code> jika ada <em>overflow</em> dengan method <code>checked_*</code>.</li>
+<li>Kembalikan nilai dan boolean yang menunjukkan apakah ada kelebihan dengan method <code>overflowing_*</code>.</li>
+<li><em>Saturate</em> pada nilai minimum atau nilai maksimum dengan method <code>saturating_*</code>.</li>
+</ul>
+</blockquote>
+<h4 id="tipe-floating-point"><a class="header" href="#tipe-floating-point">Tipe Floating-Point</a></h4>
+<p>Karat juga memiliki dua tipe primitif untuk angka <em>floating-point</em> , yaitu angka dengan titik desimal. Tipe <em>floating-point</em> Rust adalah <code>f32</code> dan <code>f64</code>, yang masing-masing berukuran 32 bit dan 64 bit. Tipe defaultnya adalah <code>f64</code> karena pada CPU modern, kecepatannya kira-kira sama dengan <code>f32</code> tetapi lebih presisi. Semua tipe <em>floating-point</em> adalah <em>signed</em>.</p>
+<p>Berikut adalah contoh yang menunjukkan aksi bilangan <em>floating-point</em>:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 2.0; // f64
+
+    let y: f32 = 3.0; // f32
+}
+</code></pre></pre>
+<p>Angka <em>floating-point</em> direpresentasikan sesuai dengan standar IEEE-754. Tipe <code>f32</code> adalah <em>single-precision</em>, dan <code>f64</code> <em>double precision</em>.</p>
+<h4 id="operasi-numerik"><a class="header" href="#operasi-numerik">Operasi Numerik</a></h4>
+<p>Rust mendukung operasi matematika dasar yang Anda harapkan untuk semua jenis angka: penjumlahan, pengurangan, perkalian, pembagian, dan sisa. Pembagian bilangan bulat terpotong menuju nol ke bilangan bulat terdekat. Kode berikut menunjukkan bagaimana Anda akan menggunakan setiap operasi numerik dalam sebuah pernyataan <code>let</code>:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    // addition
+    let sum = 5 + 10;
+
+    // subtraction
+    let difference = 95.5 - 4.3;
+
+    // multiplication
+    let product = 4 * 30;
+
+    // division
+    let quotient = 56.7 / 32.2;
+    let truncated = -5 / 3; // Results in -1
+
+    // remainder
+    let remainder = 43 % 5;
+}
+</code></pre></pre>
+<p>Setiap ekspresi dalam pernyataan ini menggunakan operator matematika dan mengevaluasi ke satu nilai, yang kemudian terikat ke variabel. <a href="appendix-02-operators.html">Lampiran B</a> berisi daftar semua operator yang disediakan oleh Rust.</p>
+<h4 id="tipe-boolean"><a class="header" href="#tipe-boolean">Tipe Boolean</a></h4>
+<p>Seperti kebanyakan bahasa pemrograman lainnya, tipe Boolean di Rust memiliki dua kemungkinan nilai: <code>true</code> dan <code>false</code>. Boolean berukuran satu byte. Tipe Boolean di Rust ditentukan menggunakan <code>bool</code>. Misalnya:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let t = true;
+
+    let f: bool = false; // with explicit type annotation
+}
+</code></pre></pre>
+<p>Cara utama untuk menggunakan nilai Boolean adalah melalui kondisional, seperti ekspresi <code>if</code>. Kami akan membahas cara kerja ekspresi <code>if</code> di Rust di bagian <a href="ch03-05-control-flow.html#control-flow">Aliran Kontrol”</a>.</p>
+<h4 id="tipe-karakter"><a class="header" href="#tipe-karakter">Tipe Karakter</a></h4>
+<p>Tipe <code>char</code> Rust adalah tipe abjad bahasa yang paling primitif. Berikut adalah beberapa contoh mendeklarasikan nilai <code>char</code>:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let c = 'z';
+    let z: char = 'ℤ'; // with explicit type annotation
+    let heart_eyed_cat = '😻';
+}
+</code></pre></pre>
+<p>Perhatikan bahwa kami menentukan literal <code>char</code> dengan kutip tunggal, berbeda dengan string literal, yang menggunakan kutip ganda. Tipe <code>char</code> Rust berukuran empat byte dan mewakili Unicode Scalar Value, yang artinya dapat mewakili lebih dari sekadar ASCII. Huruf beraksen; Karakter Cina, Jepang, dan Korea; emoji; dan spasi dengan lebar nol adalah nilai <code>char</code> yang valid di Rust. Unicode Scalar Value berkisar dari <code>U+0000</code> hingga <code>U+D7FF</code> dan <code>U+E000</code> hingga <code>U+10FFFF</code> inklusif. Namun, &quot;char&quot; sebenarnya bukan konsep di Unicode, jadi intuisi manusia tentang apa itu &quot;karakter&quot; mungkin tidak cocok dengan <code>char</code> yang ada di Rust. Kami akan membahas topik ini secara detail di <a href="ch08-02-strings.html#storing-utf-8-encoded-text-with-strings">“Menyimpan Teks Bersandi UTF-8 dengan String”</a> di Bab 8.</p>
+<h3 id="tipe-compound-tipe-gabungan"><a class="header" href="#tipe-compound-tipe-gabungan">Tipe Compound (Tipe Gabungan)</a></h3>
+<p><em>Compound Type</em> dapat mengelompokkan beberapa nilai menjadi satu tipe. Rust memiliki dua tipe <em>compound</em> primitif: tuple dan array.</p>
+<h4 id="tipe-tuple"><a class="header" href="#tipe-tuple">Tipe Tuple</a></h4>
+<p>Tuple adalah cara umum untuk mengelompokkan sejumlah nilai dari berbagai tipe menjadi satu tipe majemuk. Tuple memiliki panjang tetap: setelah dideklarasikan, mereka tidak dapat tumbuh atau menyusut ukurannya.</p>
+<p>Kami membuat tuple dengan menulis daftar nilai yang dipisahkan koma di dalam tanda kurung. Setiap posisi dalam tuple memiliki tipe, dan tipe setiap nilai dalam tuple tidak harus sama. Kami telah menambahkan anotasi tipe opsional dalam contoh ini:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+}
+</code></pre></pre>
+<p>Variabel <code>tup</code> mengikat seluruh tuple karena tuple dianggap sebagai elemen majemuk tunggal. Untuk mendapatkan nilai individual dari tuple, kita dapat menggunakan pencocokan pola untuk men-<em>destructure</em> nilai tuple, seperti ini:</p>
+<p><span class="filename">Filename: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let tup = (500, 6.4, 1);
+
+    let (x, y, z) = tup;
+
+    println!(&quot;The value of y is: {y}&quot;);
+}
+</code></pre></pre>
+<p>Program ini pertama-tama membuat tuple dan mengikatnya ke variabel <code>tup</code>. Ini kemudian menggunakan pola dengan <code>let</code> untuk mengambil <code>tup</code> dan mengubahnya menjadi tiga variabel terpisah, <code>x</code>, <code>y</code>, dan <code>z</code>. Ini disebut destrukturisasi karena memecah tupel tunggal menjadi tiga bagian. Akhirnya, program mencetak nilai <code>y</code>, yaitu <code>6.4</code>.</p>
+<p>Kita juga bisa mengakses elemen tuple secara langsung dengan menggunakan tanda titik (<code>.</code>) diikuti dengan indeks dari nilai yang ingin kita akses. Misalnya:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x: (i32, f64, u8) = (500, 6.4, 1);
+
+    let five_hundred = x.0;
+
+    let six_point_four = x.1;
+
+    let one = x.2;
+}
+</code></pre></pre>
+<p>Program ini membuat tuple <code>x</code> dan kemudian mengakses setiap elemen tuple menggunakan indeksnya masing-masing. Seperti kebanyakan bahasa pemrograman, indeks pertama dalam sebuah tuple adalah 0.</p>
+<p>Tuple tanpa nilai apa pun memiliki nama khusus, <em>unit</em>. Nilai ini dan tipe yang sesuai keduanya ditulis <code>()</code> dan mewakili nilai kosong atau tipe kembalian kosong. Ekspresi secara implisit mengembalikan nilai unit jika tidak mengembalikan nilai lainnya.</p>
+<h4 id="tipe-array"><a class="header" href="#tipe-array">Tipe Array</a></h4>
+<p>Cara lain untuk memiliki kumpulan beberapa nilai adalah dengan <em>array</em>. Tidak seperti tuple, setiap elemen array harus memiliki tipe yang sama. Tidak seperti array di beberapa bahasa lain, array di Rust memiliki panjang yang tetap.</p>
+<p>Kami menulis nilai dalam array sebagai daftar yang dipisahkan koma di dalam tanda kurung siku:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = [1, 2, 3, 4, 5];
+}
+</code></pre></pre>
+<p>Array berguna saat Anda ingin data Anda dialokasikan di <em>stack</em> dan bukan di <em>heap</em> (kita akan membahas tumpukan dan tumpukan lebih lanjut di <a href="ch04-01-what-is-ownership.html#the-stack-and-the-heap">Bab 4</a>) atau saat Anda ingin memastikan bahwa Anda selalu memiliki jumlah elemen yang tetap. Array tidak sefleksibel tipe vector. <em>Vector</em> adalah jenis koleksi serupa yang disediakan oleh pustaka standar yang diizinkan untuk memperbesar atau memperkecil ukurannya. Jika Anda tidak yakin apakah akan menggunakan array atau vector, kemungkinan besar Anda harus menggunakan vector. <a href="ch08-01-vectors.html">Bab 8</a> membahas vector secara lebih rinci.</p>
+<p>Namun, array lebih berguna ketika Anda mengetahui jumlah elemen tidak perlu diubah. Misalnya, jika Anda menggunakan nama bulan dalam sebuah program, Anda mungkin akan menggunakan array daripada vector karena Anda tahu itu akan selalu berisi 12 elemen:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let months = [&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;,
+              &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;];
+<span class="boring">}
+</span></code></pre></pre>
+<p>Anda menulis tipe array menggunakan tanda kurung siku dengan tipe setiap elemen, titik koma, dan kemudian jumlah elemen dalam array, seperti ini:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let a: [i32; 5] = [1, 2, 3, 4, 5];
+<span class="boring">}
+</span></code></pre></pre>
+<p>Di sini, <code>i32</code> adalah tipe setiap elemen. Setelah titik koma, angka <code>5</code> menunjukkan array berisi lima elemen.</p>
+<p>Anda juga dapat menginisialisasi array agar berisi nilai yang sama untuk setiap elemen dengan menentukan nilai awal, diikuti dengan titik koma, lalu panjang array dalam tanda kurung siku, seperti yang ditunjukkan di sini:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let a = [3; 5];
+<span class="boring">}
+</span></code></pre></pre>
+<p>Array bernama <code>a</code> akan berisi <code>5</code> elemen yang semuanya akan disetel ke nilai <code>3</code> awalnya. Ini sama dengan menulis <code>let a = [3, 3, 3, 3, 3];</code> tetapi dengan cara yang lebih ringkas.</p>
+<h5 id="mengakses-elemen-array"><a class="header" href="#mengakses-elemen-array">Mengakses Elemen Array</a></h5>
+<p>Array adalah potongan tunggal memori dengan ukuran tetap yang diketahui yang dapat dialokasikan pada stack. Anda dapat mengakses elemen array menggunakan pengindeksan, seperti ini:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = [1, 2, 3, 4, 5];
+
+    let first = a[0];
+    let second = a[1];
+}
+</code></pre></pre>
+<p>Dalam contoh ini, variabel bernama <code>first</code> akan mendapatkan nilai <code>1</code> karena itu adalah nilai array dalam indeks <code>[0]</code>. Variabel bernama <code>second</code> akan mendapatkan nilai <code>2</code> dari indeks <code>[1]</code> dalam array.</p>
+<h5 id="akses-elemen-array-tidak-valid"><a class="header" href="#akses-elemen-array-tidak-valid">Akses Elemen Array Tidak Valid</a></h5>
+<p>Mari kita lihat apa yang terjadi jika Anda mencoba mengakses elemen array yang melewati akhir array. Katakanlah Anda menjalankan kode ini, mirip dengan permainan tebak-tebakan di Bab 2, untuk mendapatkan indeks array dari pengguna:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><code class="language-rust ignore panics">use std::io;
+
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+
+    println!(&quot;Please enter an array index.&quot;);
+
+    let mut index = String::new();
+
+    io::stdin()
+        .read_line(&amp;mut index)
+        .expect(&quot;Failed to read line&quot;);
+
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect(&quot;Index entered was not a number&quot;);
+
+    let element = a[index];
+
+    println!(&quot;The value of the element at index {index} is: {element}&quot;);
+}
+</code></pre>
+<p>Kode ini berhasil dikompilasi. Jika Anda menjalankan kode ini menggunakan <code>cargo run</code> dan memasukkan <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, atau <code>4</code>, program akan mencetak nilai yang sesuai pada indeks di dalam array tersebut. Jika Anda memasukkan angka setelah akhir array, seperti <code>10</code>, Anda akan melihat keluaran seperti ini:</p>
+<!-- manual-regeneration
+cd listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access
+cargo run
+10
+-->
+<pre><code class="language-console">thread 'main' panicked at 'index out of bounds: the len is 5 but the index is 10', src/main.rs:19:19
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</code></pre>
+<p>Program mengakibatkan kesalahan runtime saat menggunakan nilai yang tidak valid dalam operasi pengindeksan. Program keluar dengan pesan kesalahan dan tidak mengeksekusi pernyataan akhir <code>println!</code>. Saat Anda mencoba mengakses elemen menggunakan pengindeksan, Rust akan memeriksa apakah indeks yang Anda tentukan kurang dari panjang array. Jika indeks lebih besar dari atau sama dengan panjangnya, Rust akan panik. Pemeriksaan ini harus terjadi pada waktu runtime, terutama dalam kasus ini, karena kompiler tidak mungkin mengetahui nilai apa yang akan dimasukkan pengguna saat mereka menjalankan kode nanti.</p>
+<p>Ini adalah contoh penerapan prinsip keamanan memori Rust. Dalam banyak bahasa tingkat rendah, pemeriksaan semacam ini tidak dilakukan, dan saat Anda memberikan indeks yang salah, memori yang tidak valid dapat diakses. Rust melindungi Anda dari kesalahan semacam ini dengan segera keluar alih-alih mengizinkan akses memori dan melanjutkan. Bab 9 membahas lebih lanjut tentang penanganan kesalahan Rust dan bagaimana Anda dapat menulis kode aman yang dapat dibaca yang tidak membuat panik atau mengizinkan akses memori yang tidak valid.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch03-01-variables-and-mutability.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="ch03-03-how-functions-work.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch03-01-variables-and-mutability.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="ch03-03-how-functions-work.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="ferris.js"></script>
+    </body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Variabel dan Mutabilitas - Bahasa Pemrograman Rust</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferris.css">
+        <link rel="stylesheet" href="theme/2018-edition.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Bahasa Pemrograman Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Kata Pengantar</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Perkenalan</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Memulai</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Instalasi</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Hello, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Memprogram Game Tebak-tebakan</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Konsep Pemrograman Umum</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html" class="active"><strong aria-hidden="true">3.1.</strong> Variabel dan Mutabilitas</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Tipe Data</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> Fungsi</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Komentar</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html"><strong aria-hidden="true">3.5.</strong> Aliran Kontrol</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Memahami Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> Apa itu Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> Reference dan Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> Tipe Slice</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> Menggunakan Struct untuk Menyusun Data Terkait</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Mendefinisikan dan Instansiasi Struct</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> Contoh Program Menggunakan Struct</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Sintaks Method</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enum dan Pencocokan Pola</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Mendefinisikan Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> Konstruk Aliran Kontrol match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> Aliran Kontrol Ringkas dengan if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Mengelola Proyek yang Berkembang dengan Packages, Crates, dan Modul</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Packages dan Crates</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Mendefinisikan Modul untuk Menongtrol Ruang Lingkup dan Privasi</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Jalur untuk Merujuk ke Item di Pohon Modul</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> Membawa Jalur ke Cakupan dengan Kata Kunci use</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Memisahkan Modul menjadi File yang Berbeda</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Koleksi Umum</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Menyimpan Daftar Nilai dengan Vector</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> Menyimpan Teks UTF-8 Encoded dengan String</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> Menyimpan Kunci dengan Nilai Terkait di Hash Map</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Penanganan Kesalahan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> Kesalahan yang Tidak Dapat Dipulihkan dengan panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Kesalahan yang Dapat Dipulihkan dengan Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> panic! atau jangan panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Tipe Generik, Trait, dan Lifetime</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Tipe Data Generik</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Trait: Mendefinisikan Perilaku Bersama</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Memvalidasi Reference dengan Lifetime</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Menulis Tes Otomatis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Cara Menulis Tes</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Mengontrol Bagaiaman Tes Dijalankan</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Organisasi Tes</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> Projek I/O: Membangun Program Baris Perintah</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Menerima Argumen Baris Perintah</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Membaca File</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Refactoring untuk Meningkatkan Modularitas dan Penanganan Kesalahan</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Mengembangkan Fungsionalitas Library dengan Test Driven Development</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Bekerja dengan Environment Variable</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Menulis Pesan Kesalahan ke Standard Error Alih-alih Standard Output</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Fitur Bahasa Fungsional: Iterator dan Closure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closure: Fungsi Anonim yang Menangkap Lingkungannya</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Memproses Serangkaian Item dengan Iterator</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Meningkatkan Proyek I/O Kami</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Membandingkan Performa: Loop vs Iterator</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> Lebih Lanjut Tentang Cargo dan Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Menyesuaikan Build dengan Profil Rilis</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Menerbitkan Crate ke Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Ruang Kerja Cargo</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Menginstal Binari dari Crates.io dengan cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Memperpanjang Cargo dengan Perintah Khusus</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Smart Pointer</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Menggunakan Box&lt;T&gt; untuk Menunjuk ke Data di Heap</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Memperlakukan Smart Pointer Seperti Reference Biasa dengan Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Menjalankan Kode pada Pembersihan dengan Trait Drop</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Rc&lt;T&gt;, Smart Pointer Reference Terhitung</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; dan Pola Mutabilitas Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Siklus Reference Dapat Membocorkan Memori</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Konkurensi Tanpa Takut</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> Menggunakan Thread untuk Menjalankan Kode secara Bersamaan</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Menggunakan Message Passing untuk Mentransfer Data Antar Thread</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Konkurensi Shared-State</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Konkurensi yang Dapat Diperluas dengan Trait Sync dan Send</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> Fitur Pemrograman Berorientasi Objek dari Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-what-is-oo.html"><strong aria-hidden="true">17.1.</strong> Karakteristik Bahasa Berorientasi Objek</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> Menggunakan Objek Trait yang Memungkinkan Nilai dari Berbagai Tipe</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> Menerapkan Pola Desain Berorientasi Objek</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Pola dan Pencocokan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-all-the-places-for-patterns.html"><strong aria-hidden="true">18.1.</strong> Semua Tempat Pola Dapat Digunakan</a></li><li class="chapter-item expanded "><a href="ch18-02-refutability.html"><strong aria-hidden="true">18.2.</strong> Sanggahan: Apakah suatu Pola Mungkin Gagal Mencocokkan</a></li><li class="chapter-item expanded "><a href="ch18-03-pattern-syntax.html"><strong aria-hidden="true">18.3.</strong> Sintaks Pola</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-advanced-features.html"><strong aria-hidden="true">19.</strong> Fitur Lanjutan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-unsafe-rust.html"><strong aria-hidden="true">19.1.</strong> Unsafe Rust</a></li><li class="chapter-item expanded "><a href="ch19-03-advanced-traits.html"><strong aria-hidden="true">19.2.</strong> Trait Lanjutan</a></li><li class="chapter-item expanded "><a href="ch19-04-advanced-types.html"><strong aria-hidden="true">19.3.</strong> Tipe Lanjutan</a></li><li class="chapter-item expanded "><a href="ch19-05-advanced-functions-and-closures.html"><strong aria-hidden="true">19.4.</strong> Fungsi Lanjutan dan Closure</a></li><li class="chapter-item expanded "><a href="ch19-06-macros.html"><strong aria-hidden="true">19.5.</strong> Makro</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-final-project-a-web-server.html"><strong aria-hidden="true">20.</strong> Tugas Akhir: Membangun Server Web Multithreaded</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-single-threaded.html"><strong aria-hidden="true">20.1.</strong> Membangun Server Web Single-Threaded</a></li><li class="chapter-item expanded "><a href="ch20-02-multithreaded.html"><strong aria-hidden="true">20.2.</strong> Mengubah Server Single-Threaded ke Server Multithreaded</a></li><li class="chapter-item expanded "><a href="ch20-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">20.3.</strong> Shutdown dan Pembersihan Anggun</a></li></ol></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Lampiran</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> A - Kata Kunci</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> B - Operator dan Simbol</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> C - Derivable Trait</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">21.4.</strong> D - Alat Pengembangan yang Berguna</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">21.5.</strong> E - Edisi</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">21.6.</strong> F - Terjemahan Buku</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.7.</strong> G - Bagaimana Rust Dibuat dan “Nightly Rust”</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Bahasa Pemrograman Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/renomureza/rust-book-id" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="variabel-dan-mutabilitas"><a class="header" href="#variabel-dan-mutabilitas">Variabel dan Mutabilitas</a></h2>
+<p>Seperti yang disebutkan di bagian <a href="ch02-00-guessing-game-tutorial.html#storing-values-with-variables">“Menyimpan Nilai dengan Variabel</a>, secara default, variabel tidak dapat diubah. Ini adalah salah satu dari banyak dorongan yang diberikan Rust kepada Anda untuk menulis kode dengan cara yang memanfaatkan keamanan dan konkurensi mudah yang ditawarkan Rust. Namun, Anda masih memiliki opsi untuk membuat variabel Anda bisa berubah. Mari jelajahi bagaimana dan mengapa Rust mendorong Anda untuk menyukai kekekalan (<em>immutability</em>) dan mengapa terkadang Anda ingin memilih keluar.</p>
+<p>Ketika sebuah variabel tidak dapat diubah, setelah sebuah nilai terikat pada sebuah nama, Anda tidak dapat mengubah nilai tersebut. Untuk mengilustrasikannya, buat proyek baru bernama <em>variables</em> di direktori <em>projects</em> Anda dengan menggunakan <code>cargo new variables</code>.</p>
+<p>Kemudian, di direktori <em>variables</em> Anda, buka <em>src/main.rs</em> dan ganti kodenya dengan kode berikut, yang belum dapat dikompilasi:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><code class="language-rust ignore does_not_compile">fn main() {
+    let x = 5;
+    println!(&quot;The value of x is: {x}&quot;);
+    x = 6;
+    println!(&quot;The value of x is: {x}&quot;);
+}
+</code></pre>
+<p>Simpan dan jalankan program menggunakan <code>cargo run</code>. Anda akan menerima pesan kesalahan terkait kesalahan kekekalan, seperti yang ditampilkan dalam output ini:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling variables v0.1.0 (file:///projects/variables)
+error[E0384]: cannot assign twice to immutable variable `x`
+ --&gt; src/main.rs:4:5
+  |
+2 |     let x = 5;
+  |         -
+  |         |
+  |         first assignment to `x`
+  |         help: consider making this binding mutable: `mut x`
+3 |     println!(&quot;The value of x is: {x}&quot;);
+4 |     x = 6;
+  |     ^^^^^ cannot assign twice to immutable variable
+
+For more information about this error, try `rustc --explain E0384`.
+error: could not compile `variables` due to previous error
+</code></pre>
+<p>Contoh ini menunjukkan bagaimana kompiler membantu Anda menemukan kesalahan dalam program Anda. Kesalahan kompiler bisa membuat frustasi, tetapi sebenarnya itu berarti program Anda belum melakukan apa yang Anda inginkan dengan aman; itu <em>tidak</em> berarti bahwa Anda bukan programmer yang baik! Rustacean berpengalaman masih mendapatkan kesalahan kompiler.</p>
+<p>Anda menerima pesan kesalahan <code>cannot assign twice to immutable variable `x`</code> karena mencoba menetapkan nilai kedua ke variabel <code>x</code> yang tidak dapat diubah.</p>
+<p>Penting bagi kita untuk mendapatkan kesalahan pada waktu kompilasi saat kita mencoba mengubah nilai yang ditetapkan sebagai tidak dapat diubah, karena situasi ini dapat menyebabkan bug. Jika satu bagian dari kode kita beroperasi dengan asumsi bahwa suatu nilai tidak akan pernah berubah dan bagian lain dari kode kita mengubah nilai itu, kemungkinan bagian pertama dari kode tersebut tidak akan melakukan apa yang seharusnya dilakukan. Penyebab bug semacam ini bisa jadi sulit untuk dilacak setelah faktanya, terutama ketika potongan kode kedua <em>kadang-kadang</em> hanya mengubah nilainya. Kompiler Rust menjamin bahwa ketika Anda menyatakan bahwa suatu nilai tidak akan berubah, itu benar-benar tidak akan berubah, jadi Anda tidak perlu melacaknya sendiri. Dengan demikian, kode Anda lebih mudah untuk dipikirkan.</p>
+<p>Tapi mutabilitas bisa sangat berguna, dan bisa membuat kode lebih nyaman untuk ditulis. Meskipun variabel tidak dapat diubah secara default, Anda dapat membuatnya dapat diubah dengan menambahkan <code>mut</code> di depan nama variabel seperti yang Anda lakukan di <a href="ch02-00-guessing-game-tutorial.html#storing-values-with-variables">Bab 2</a>. Menambahkan <code>mut</code> juga menyampaikan maksud kepada pembaca kode di masa mendatang dengan menunjukkan bahwa bagian lain dari kode akan mengubah nilai variabel ini.</p>
+<p>Misalnya, mari kita ubah <em>src/main.rs</em> menjadi berikut ini:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut x = 5;
+    println!(&quot;The value of x is: {x}&quot;);
+    x = 6;
+    println!(&quot;The value of x is: {x}&quot;);
+}
+</code></pre></pre>
+<p>Saat kita menjalankan program sekarang, kita mendapatkan ini:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling variables v0.1.0 (file:///projects/variables)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.30s
+     Running `target/debug/variables`
+The value of x is: 5
+The value of x is: 6
+</code></pre>
+<p>Kami diizinkan untuk mengubah nilai yang terikat ke <code>x</code> dari <code>5</code> ke <code>6</code> saat <code>mut</code> digunakan. Pada akhirnya, memutuskan apakah akan menggunakan mutabilitas atau tidak terserah Anda dan bergantung pada apa yang menurut Anda paling jelas dalam situasi tertentu.</p>
+<h3 id="konstanta"><a class="header" href="#konstanta">Konstanta</a></h3>
+<p>Seperti variabel yang tidak dapat diubah, konstanta adalah nilai yang terikat pada nama dan tidak boleh diubah, tetapi ada beberapa perbedaan antara konstanta dan variabel.</p>
+<p>Pertama, Anda tidak diizinkan menggunakan <code>mut</code> dalam konstanta. Konstanta tidak hanya tidak dapat diubah secara default — konstanta selalu tidak dapat diubah. Anda mendeklarasikan konstanta menggunakan kata kunci <code>const</code> alih-alih <code>let</code>, dan jenis nilainya <em>harus</em> dianotasi. Kita akan membahas tipe dan anotasi tipe di bagian berikutnya, <a href="ch03-02-data-types.html#data-types">Tipe Data</a>, jadi jangan khawatir tentang detailnya sekarang. Ketahuilah bahwa Anda harus selalu membubuhi keterangan tipenya.</p>
+<p>Konstanta dapat dideklarasikan dalam lingkup apa pun, termasuk lingkup global, yang membuatnya berguna untuk nilai yang perlu diketahui oleh banyak bagian kode.</p>
+<p>Perbedaan terakhir adalah konstanta dapat disetel hanya ke ekspresi konstanta, bukan hasil dari nilai yang hanya dapat dihitung saat runtime.</p>
+<p>Berikut adalah contoh deklarasi konstanta:</p>
+<pre><pre class="playground"><code class="language-rust">
+<span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
+<span class="boring">}
+</span></code></pre></pre>
+<p>Nama konstanta tersebut adalah <code>THREE_HOURS_IN_SECONDS</code> dan nilainya ditetapkan sebagai hasil perkalian 60 (jumlah detik dalam satu menit) dengan 60 (jumlah menit dalam satu jam) dengan 3 (jumlah jam yang ingin kita hitung dalam program ini). Konvensi penamaan Rust untuk konstanta adalah menggunakan semua huruf besar dengan garis bawah di antara kata-kata. Kompiler dapat mengevaluasi serangkaian operasi terbatas pada waktu kompilasi, yang memungkinkan kita memilih untuk menuliskan nilai ini dengan cara yang lebih mudah dipahami dan diverifikasi, daripada menyetel konstanta ini ke nilai 10,800. Lihat bagian <a href="../reference/const_eval.html">Rust Reference tentang evaluasi konstanta</a> untuk informasi lebih lanjut tentang operasi apa yang dapat digunakan saat mendeklarasikan konstanta.</p>
+<p>Konstanta berlaku sepanjang waktu program berjalan, dalam lingkup di mana mereka dideklarasikan. Properti ini membuat konstanta berguna untuk nilai dalam domain aplikasi Anda yang mungkin perlu diketahui oleh beberapa bagian program, seperti jumlah poin maksimum yang boleh diperoleh pemain mana pun dari suatu game, atau kecepatan cahaya.</p>
+<p>Memberi nama nilai <em>hardcode</em> yang digunakan di seluruh program Anda sebagai konstanta berguna dalam menyampaikan arti nilai tersebut kepada pengelola kode di masa mendatang. Ini juga membantu untuk memiliki hanya satu tempat dalam kode Anda yang perlu Anda ubah jika nilai <em>hardcode</em> perlu diperbarui di masa mendatang.</p>
+<h3 id="shadowing-pembayangan"><a class="header" href="#shadowing-pembayangan">Shadowing (Pembayangan)</a></h3>
+<p>Seperti yang Anda lihat di tutorial permainan tebak-tebakan di <a href="ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number">Bab 2</a>, Anda bisa mendeklarasikan variabel baru dengan nama yang sama dengan variabel sebelumnya. Rustaceans mengatakan bahwa variabel pertama dibayangi oleh yang kedua, yang berarti bahwa variabel kedua adalah apa yang akan dilihat oleh kompiler ketika Anda menggunakan nama variabel. Akibatnya, variabel kedua membayangi yang pertama, menggunakan nama variabel apa pun untuk dirinya sendiri sampai variabel itu sendiri dibayangi atau cakupannya berakhir. Kita bisa membayangi variabel dengan menggunakan nama variabel yang sama dan mengulangi penggunaan kata kunci <code>let</code> sebagai berikut:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let x = 5;
+
+    let x = x + 1;
+
+    {
+        let x = x * 2;
+        println!(&quot;The value of x in the inner scope is: {x}&quot;);
+    }
+
+    println!(&quot;The value of x is: {x}&quot;);
+}
+</code></pre></pre>
+<p>Program ini pertama mengikat <code>x</code> ke nilai <code>5</code>. Kemudian ia membuat variabel baru <code>x</code> dengan mengulang <code>let x =</code>, mengambil nilai asli dan menambahkan <code>1</code> sehingga nilai <code>x</code> menjadi <code>6</code>. Kemudian, dalam lingkup baru yang dibuat dengan kurung kurawal, pernyataan <code>let</code> ketiga juga membayangi <code>x</code> dan membuat variabel baru, mengalikan nilai sebelumnya dengan <code>2</code> membuat <code>x</code> memiliki nilai <code>12</code>. Ketika ruang lingkup itu berakhir, bayangan didalam berakhir dan <code>x</code> kembali menjadi <code>6</code>. Ketika kami menjalankan program ini, itu akan menampilkan yang berikut:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling variables v0.1.0 (file:///projects/variables)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.31s
+     Running `target/debug/variables`
+The value of x in the inner scope is: 12
+The value of x is: 6
+</code></pre>
+<p>Shadowing berbeda dengan menandai variabel dengan <code>mut</code> karena kita akan mendapatkan kesalahan waktu kompilasi jika kita tidak sengaja mencoba menetapkan ulang ke variabel ini tanpa menggunakan kata kunci <code>let</code>. Dengan menggunakan <code>let</code>, kita dapat melakukan beberapa transformasi pada suatu nilai tetapi memiliki variabel yang tidak dapat diubah setelah transformasi tersebut selesai.</p>
+<p>Perbedaan lain antara <code>mut</code> dan shadowing adalah karena kita membuat variabel baru secara efektif saat menggunakan kata kunci <code>let</code>, kita dapat mengubah tipe nilai tetapi menggunakan kembali nama yang sama. Misalnya, program kami meminta pengguna untuk menunjukkan berapa banyak spasi yang mereka inginkan di antara beberapa teks dengan memasukkan karakter spasi, lalu kami ingin menyimpan masukan itu sebagai angka:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">fn main() {
+</span>    let spaces = &quot;   &quot;;
+    let spaces = spaces.len();
+<span class="boring">}
+</span></code></pre></pre>
+<p>Variabel <code>spaces</code> pertama adalah tipe string dan variabel <code>spaces</code> kedua adalah tipe angka. Shadowing dengan demikian menghindarkan kita dari keharusan memunculkan nama yang berbeda, seperti <code>spaces_str</code> dan <code>spaces_num</code>; sebagai gantinya, kita dapat menggunakan kembali nama <code>spaces</code> yang lebih sederhana. Namun, jika kami mencoba menggunakan <code>mut</code> untuk ini, seperti yang ditunjukkan di sini, kami akan mendapatkan kesalahan waktu kompilasi:</p>
+<pre><code class="language-rust ignore does_not_compile"><span class="boring">fn main() {
+</span>    let mut spaces = &quot;   &quot;;
+    spaces = spaces.len();
+<span class="boring">}
+</span></code></pre>
+<p>Kesalahan mengatakan kami tidak diizinkan untuk mengubah tipe variabel:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling variables v0.1.0 (file:///projects/variables)
+error[E0308]: mismatched types
+ --&gt; src/main.rs:3:14
+  |
+2 |     let mut spaces = &quot;   &quot;;
+  |                      ----- expected due to this value
+3 |     spaces = spaces.len();
+  |              ^^^^^^^^^^^^ expected `&amp;str`, found `usize`
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `variables` due to previous error
+</code></pre>
+<p>Sekarang setelah kita menjelajahi cara kerja variabel, mari kita lihat lebih banyak tipe data yang dapat mereka miliki.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch03-00-common-programming-concepts.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="ch03-02-data-types.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch03-00-common-programming-concepts.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="ch03-02-data-types.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="ferris.js"></script>
+    </body>
+</html>

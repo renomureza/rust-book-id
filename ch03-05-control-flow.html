@@ -1,0 +1,491 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Aliran Kontrol - Bahasa Pemrograman Rust</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="ferris.css">
+        <link rel="stylesheet" href="theme/2018-edition.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="title-page.html">Bahasa Pemrograman Rust</a></li><li class="chapter-item expanded affix "><a href="foreword.html">Kata Pengantar</a></li><li class="chapter-item expanded affix "><a href="ch00-00-introduction.html">Perkenalan</a></li><li class="chapter-item expanded "><a href="ch01-00-getting-started.html"><strong aria-hidden="true">1.</strong> Memulai</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch01-01-installation.html"><strong aria-hidden="true">1.1.</strong> Instalasi</a></li><li class="chapter-item expanded "><a href="ch01-02-hello-world.html"><strong aria-hidden="true">1.2.</strong> Hello, World!</a></li><li class="chapter-item expanded "><a href="ch01-03-hello-cargo.html"><strong aria-hidden="true">1.3.</strong> Hello, Cargo!</a></li></ol></li><li class="chapter-item expanded "><a href="ch02-00-guessing-game-tutorial.html"><strong aria-hidden="true">2.</strong> Memprogram Game Tebak-tebakan</a></li><li class="chapter-item expanded "><a href="ch03-00-common-programming-concepts.html"><strong aria-hidden="true">3.</strong> Konsep Pemrograman Umum</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch03-01-variables-and-mutability.html"><strong aria-hidden="true">3.1.</strong> Variabel dan Mutabilitas</a></li><li class="chapter-item expanded "><a href="ch03-02-data-types.html"><strong aria-hidden="true">3.2.</strong> Tipe Data</a></li><li class="chapter-item expanded "><a href="ch03-03-how-functions-work.html"><strong aria-hidden="true">3.3.</strong> Fungsi</a></li><li class="chapter-item expanded "><a href="ch03-04-comments.html"><strong aria-hidden="true">3.4.</strong> Komentar</a></li><li class="chapter-item expanded "><a href="ch03-05-control-flow.html" class="active"><strong aria-hidden="true">3.5.</strong> Aliran Kontrol</a></li></ol></li><li class="chapter-item expanded "><a href="ch04-00-understanding-ownership.html"><strong aria-hidden="true">4.</strong> Memahami Ownership</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch04-01-what-is-ownership.html"><strong aria-hidden="true">4.1.</strong> Apa itu Ownership?</a></li><li class="chapter-item expanded "><a href="ch04-02-references-and-borrowing.html"><strong aria-hidden="true">4.2.</strong> Reference dan Borrowing</a></li><li class="chapter-item expanded "><a href="ch04-03-slices.html"><strong aria-hidden="true">4.3.</strong> Tipe Slice</a></li></ol></li><li class="chapter-item expanded "><a href="ch05-00-structs.html"><strong aria-hidden="true">5.</strong> Menggunakan Struct untuk Menyusun Data Terkait</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch05-01-defining-structs.html"><strong aria-hidden="true">5.1.</strong> Mendefinisikan dan Instansiasi Struct</a></li><li class="chapter-item expanded "><a href="ch05-02-example-structs.html"><strong aria-hidden="true">5.2.</strong> Contoh Program Menggunakan Struct</a></li><li class="chapter-item expanded "><a href="ch05-03-method-syntax.html"><strong aria-hidden="true">5.3.</strong> Sintaks Method</a></li></ol></li><li class="chapter-item expanded "><a href="ch06-00-enums.html"><strong aria-hidden="true">6.</strong> Enum dan Pencocokan Pola</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch06-01-defining-an-enum.html"><strong aria-hidden="true">6.1.</strong> Mendefinisikan Enum</a></li><li class="chapter-item expanded "><a href="ch06-02-match.html"><strong aria-hidden="true">6.2.</strong> Konstruk Aliran Kontrol match</a></li><li class="chapter-item expanded "><a href="ch06-03-if-let.html"><strong aria-hidden="true">6.3.</strong> Aliran Kontrol Ringkas dengan if let</a></li></ol></li><li class="chapter-item expanded "><a href="ch07-00-managing-growing-projects-with-packages-crates-and-modules.html"><strong aria-hidden="true">7.</strong> Mengelola Proyek yang Berkembang dengan Packages, Crates, dan Modul</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch07-01-packages-and-crates.html"><strong aria-hidden="true">7.1.</strong> Packages dan Crates</a></li><li class="chapter-item expanded "><a href="ch07-02-defining-modules-to-control-scope-and-privacy.html"><strong aria-hidden="true">7.2.</strong> Mendefinisikan Modul untuk Menongtrol Ruang Lingkup dan Privasi</a></li><li class="chapter-item expanded "><a href="ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html"><strong aria-hidden="true">7.3.</strong> Jalur untuk Merujuk ke Item di Pohon Modul</a></li><li class="chapter-item expanded "><a href="ch07-04-bringing-paths-into-scope-with-the-use-keyword.html"><strong aria-hidden="true">7.4.</strong> Membawa Jalur ke Cakupan dengan Kata Kunci use</a></li><li class="chapter-item expanded "><a href="ch07-05-separating-modules-into-different-files.html"><strong aria-hidden="true">7.5.</strong> Memisahkan Modul menjadi File yang Berbeda</a></li></ol></li><li class="chapter-item expanded "><a href="ch08-00-common-collections.html"><strong aria-hidden="true">8.</strong> Koleksi Umum</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch08-01-vectors.html"><strong aria-hidden="true">8.1.</strong> Menyimpan Daftar Nilai dengan Vector</a></li><li class="chapter-item expanded "><a href="ch08-02-strings.html"><strong aria-hidden="true">8.2.</strong> Menyimpan Teks UTF-8 Encoded dengan String</a></li><li class="chapter-item expanded "><a href="ch08-03-hash-maps.html"><strong aria-hidden="true">8.3.</strong> Menyimpan Kunci dengan Nilai Terkait di Hash Map</a></li></ol></li><li class="chapter-item expanded "><a href="ch09-00-error-handling.html"><strong aria-hidden="true">9.</strong> Penanganan Kesalahan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch09-01-unrecoverable-errors-with-panic.html"><strong aria-hidden="true">9.1.</strong> Kesalahan yang Tidak Dapat Dipulihkan dengan panic!</a></li><li class="chapter-item expanded "><a href="ch09-02-recoverable-errors-with-result.html"><strong aria-hidden="true">9.2.</strong> Kesalahan yang Dapat Dipulihkan dengan Result</a></li><li class="chapter-item expanded "><a href="ch09-03-to-panic-or-not-to-panic.html"><strong aria-hidden="true">9.3.</strong> panic! atau jangan panic!</a></li></ol></li><li class="chapter-item expanded "><a href="ch10-00-generics.html"><strong aria-hidden="true">10.</strong> Tipe Generik, Trait, dan Lifetime</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch10-01-syntax.html"><strong aria-hidden="true">10.1.</strong> Tipe Data Generik</a></li><li class="chapter-item expanded "><a href="ch10-02-traits.html"><strong aria-hidden="true">10.2.</strong> Trait: Mendefinisikan Perilaku Bersama</a></li><li class="chapter-item expanded "><a href="ch10-03-lifetime-syntax.html"><strong aria-hidden="true">10.3.</strong> Memvalidasi Reference dengan Lifetime</a></li></ol></li><li class="chapter-item expanded "><a href="ch11-00-testing.html"><strong aria-hidden="true">11.</strong> Menulis Tes Otomatis</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch11-01-writing-tests.html"><strong aria-hidden="true">11.1.</strong> Cara Menulis Tes</a></li><li class="chapter-item expanded "><a href="ch11-02-running-tests.html"><strong aria-hidden="true">11.2.</strong> Mengontrol Bagaiaman Tes Dijalankan</a></li><li class="chapter-item expanded "><a href="ch11-03-test-organization.html"><strong aria-hidden="true">11.3.</strong> Organisasi Tes</a></li></ol></li><li class="chapter-item expanded "><a href="ch12-00-an-io-project.html"><strong aria-hidden="true">12.</strong> Projek I/O: Membangun Program Baris Perintah</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch12-01-accepting-command-line-arguments.html"><strong aria-hidden="true">12.1.</strong> Menerima Argumen Baris Perintah</a></li><li class="chapter-item expanded "><a href="ch12-02-reading-a-file.html"><strong aria-hidden="true">12.2.</strong> Membaca File</a></li><li class="chapter-item expanded "><a href="ch12-03-improving-error-handling-and-modularity.html"><strong aria-hidden="true">12.3.</strong> Refactoring untuk Meningkatkan Modularitas dan Penanganan Kesalahan</a></li><li class="chapter-item expanded "><a href="ch12-04-testing-the-librarys-functionality.html"><strong aria-hidden="true">12.4.</strong> Mengembangkan Fungsionalitas Library dengan Test Driven Development</a></li><li class="chapter-item expanded "><a href="ch12-05-working-with-environment-variables.html"><strong aria-hidden="true">12.5.</strong> Bekerja dengan Environment Variable</a></li><li class="chapter-item expanded "><a href="ch12-06-writing-to-stderr-instead-of-stdout.html"><strong aria-hidden="true">12.6.</strong> Menulis Pesan Kesalahan ke Standard Error Alih-alih Standard Output</a></li></ol></li><li class="chapter-item expanded "><a href="ch13-00-functional-features.html"><strong aria-hidden="true">13.</strong> Fitur Bahasa Fungsional: Iterator dan Closure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch13-01-closures.html"><strong aria-hidden="true">13.1.</strong> Closure: Fungsi Anonim yang Menangkap Lingkungannya</a></li><li class="chapter-item expanded "><a href="ch13-02-iterators.html"><strong aria-hidden="true">13.2.</strong> Memproses Serangkaian Item dengan Iterator</a></li><li class="chapter-item expanded "><a href="ch13-03-improving-our-io-project.html"><strong aria-hidden="true">13.3.</strong> Meningkatkan Proyek I/O Kami</a></li><li class="chapter-item expanded "><a href="ch13-04-performance.html"><strong aria-hidden="true">13.4.</strong> Membandingkan Performa: Loop vs Iterator</a></li></ol></li><li class="chapter-item expanded "><a href="ch14-00-more-about-cargo.html"><strong aria-hidden="true">14.</strong> Lebih Lanjut Tentang Cargo dan Crates.io</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch14-01-release-profiles.html"><strong aria-hidden="true">14.1.</strong> Menyesuaikan Build dengan Profil Rilis</a></li><li class="chapter-item expanded "><a href="ch14-02-publishing-to-crates-io.html"><strong aria-hidden="true">14.2.</strong> Menerbitkan Crate ke Crates.io</a></li><li class="chapter-item expanded "><a href="ch14-03-cargo-workspaces.html"><strong aria-hidden="true">14.3.</strong> Ruang Kerja Cargo</a></li><li class="chapter-item expanded "><a href="ch14-04-installing-binaries.html"><strong aria-hidden="true">14.4.</strong> Menginstal Binari dari Crates.io dengan cargo install</a></li><li class="chapter-item expanded "><a href="ch14-05-extending-cargo.html"><strong aria-hidden="true">14.5.</strong> Memperpanjang Cargo dengan Perintah Khusus</a></li></ol></li><li class="chapter-item expanded "><a href="ch15-00-smart-pointers.html"><strong aria-hidden="true">15.</strong> Smart Pointer</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch15-01-box.html"><strong aria-hidden="true">15.1.</strong> Menggunakan Box&lt;T&gt; untuk Menunjuk ke Data di Heap</a></li><li class="chapter-item expanded "><a href="ch15-02-deref.html"><strong aria-hidden="true">15.2.</strong> Memperlakukan Smart Pointer Seperti Reference Biasa dengan Trait Deref</a></li><li class="chapter-item expanded "><a href="ch15-03-drop.html"><strong aria-hidden="true">15.3.</strong> Menjalankan Kode pada Pembersihan dengan Trait Drop</a></li><li class="chapter-item expanded "><a href="ch15-04-rc.html"><strong aria-hidden="true">15.4.</strong> Rc&lt;T&gt;, Smart Pointer Reference Terhitung</a></li><li class="chapter-item expanded "><a href="ch15-05-interior-mutability.html"><strong aria-hidden="true">15.5.</strong> RefCell&lt;T&gt; dan Pola Mutabilitas Interior</a></li><li class="chapter-item expanded "><a href="ch15-06-reference-cycles.html"><strong aria-hidden="true">15.6.</strong> Siklus Reference Dapat Membocorkan Memori</a></li></ol></li><li class="chapter-item expanded "><a href="ch16-00-concurrency.html"><strong aria-hidden="true">16.</strong> Konkurensi Tanpa Takut</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch16-01-threads.html"><strong aria-hidden="true">16.1.</strong> Menggunakan Thread untuk Menjalankan Kode secara Bersamaan</a></li><li class="chapter-item expanded "><a href="ch16-02-message-passing.html"><strong aria-hidden="true">16.2.</strong> Menggunakan Message Passing untuk Mentransfer Data Antar Thread</a></li><li class="chapter-item expanded "><a href="ch16-03-shared-state.html"><strong aria-hidden="true">16.3.</strong> Konkurensi Shared-State</a></li><li class="chapter-item expanded "><a href="ch16-04-extensible-concurrency-sync-and-send.html"><strong aria-hidden="true">16.4.</strong> Konkurensi yang Dapat Diperluas dengan Trait Sync dan Send</a></li></ol></li><li class="chapter-item expanded "><a href="ch17-00-oop.html"><strong aria-hidden="true">17.</strong> Fitur Pemrograman Berorientasi Objek dari Rust</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch17-01-what-is-oo.html"><strong aria-hidden="true">17.1.</strong> Karakteristik Bahasa Berorientasi Objek</a></li><li class="chapter-item expanded "><a href="ch17-02-trait-objects.html"><strong aria-hidden="true">17.2.</strong> Menggunakan Objek Trait yang Memungkinkan Nilai dari Berbagai Tipe</a></li><li class="chapter-item expanded "><a href="ch17-03-oo-design-patterns.html"><strong aria-hidden="true">17.3.</strong> Menerapkan Pola Desain Berorientasi Objek</a></li></ol></li><li class="chapter-item expanded "><a href="ch18-00-patterns.html"><strong aria-hidden="true">18.</strong> Pola dan Pencocokan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch18-01-all-the-places-for-patterns.html"><strong aria-hidden="true">18.1.</strong> Semua Tempat Pola Dapat Digunakan</a></li><li class="chapter-item expanded "><a href="ch18-02-refutability.html"><strong aria-hidden="true">18.2.</strong> Sanggahan: Apakah suatu Pola Mungkin Gagal Mencocokkan</a></li><li class="chapter-item expanded "><a href="ch18-03-pattern-syntax.html"><strong aria-hidden="true">18.3.</strong> Sintaks Pola</a></li></ol></li><li class="chapter-item expanded "><a href="ch19-00-advanced-features.html"><strong aria-hidden="true">19.</strong> Fitur Lanjutan</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch19-01-unsafe-rust.html"><strong aria-hidden="true">19.1.</strong> Unsafe Rust</a></li><li class="chapter-item expanded "><a href="ch19-03-advanced-traits.html"><strong aria-hidden="true">19.2.</strong> Trait Lanjutan</a></li><li class="chapter-item expanded "><a href="ch19-04-advanced-types.html"><strong aria-hidden="true">19.3.</strong> Tipe Lanjutan</a></li><li class="chapter-item expanded "><a href="ch19-05-advanced-functions-and-closures.html"><strong aria-hidden="true">19.4.</strong> Fungsi Lanjutan dan Closure</a></li><li class="chapter-item expanded "><a href="ch19-06-macros.html"><strong aria-hidden="true">19.5.</strong> Makro</a></li></ol></li><li class="chapter-item expanded "><a href="ch20-00-final-project-a-web-server.html"><strong aria-hidden="true">20.</strong> Tugas Akhir: Membangun Server Web Multithreaded</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="ch20-01-single-threaded.html"><strong aria-hidden="true">20.1.</strong> Membangun Server Web Single-Threaded</a></li><li class="chapter-item expanded "><a href="ch20-02-multithreaded.html"><strong aria-hidden="true">20.2.</strong> Mengubah Server Single-Threaded ke Server Multithreaded</a></li><li class="chapter-item expanded "><a href="ch20-03-graceful-shutdown-and-cleanup.html"><strong aria-hidden="true">20.3.</strong> Shutdown dan Pembersihan Anggun</a></li></ol></li><li class="chapter-item expanded "><a href="appendix-00.html"><strong aria-hidden="true">21.</strong> Lampiran</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix-01-keywords.html"><strong aria-hidden="true">21.1.</strong> A - Kata Kunci</a></li><li class="chapter-item expanded "><a href="appendix-02-operators.html"><strong aria-hidden="true">21.2.</strong> B - Operator dan Simbol</a></li><li class="chapter-item expanded "><a href="appendix-03-derivable-traits.html"><strong aria-hidden="true">21.3.</strong> C - Derivable Trait</a></li><li class="chapter-item expanded "><a href="appendix-04-useful-development-tools.html"><strong aria-hidden="true">21.4.</strong> D - Alat Pengembangan yang Berguna</a></li><li class="chapter-item expanded "><a href="appendix-05-editions.html"><strong aria-hidden="true">21.5.</strong> E - Edisi</a></li><li class="chapter-item expanded "><a href="appendix-06-translation.html"><strong aria-hidden="true">21.6.</strong> F - Terjemahan Buku</a></li><li class="chapter-item expanded "><a href="appendix-07-nightly-rust.html"><strong aria-hidden="true">21.7.</strong> G - Bagaimana Rust Dibuat dan “Nightly Rust”</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Bahasa Pemrograman Rust</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/renomureza/rust-book-id" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="aliran-kontrol"><a class="header" href="#aliran-kontrol">Aliran Kontrol</a></h2>
+<p>Kemampuan untuk menjalankan beberapa kode tergantung pada apakah suatu kondisi <code>true</code> dan untuk menjalankan beberapa kode berulang kali saat kondisi adalah <code>true</code> blok bangunan dasar di sebagian besar bahasa pemrograman. Konstruksi paling umum yang memungkinkan Anda mengontrol aliran eksekusi kode Rust adalah ekspresi <code>if</code> dan loop.</p>
+<h3 id="ekspresi-if"><a class="header" href="#ekspresi-if">Ekspresi <code>if</code></a></h3>
+<p>Ekspresi <code>if</code> memungkinkan Anda untuk mencabangkan kode Anda tergantung pada kondisi. Anda memberikan kondisi dan kemudian menyatakan, “Jika kondisi ini terpenuhi, jalankan blok kode ini. Jika syaratnya tidak terpenuhi, jangan jalankan blok kode ini.”</p>
+<p>Buat proyek baru bernama <em>branches</em> di direktori <em>projects</em> Anda untuk menjelajahi ekspresi <code>if</code>. Di file <em>src/main.rs</em>, masukkan yang berikut ini:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let number = 3;
+
+    if number &lt; 5 {
+        println!(&quot;condition was true&quot;);
+    } else {
+        println!(&quot;condition was false&quot;);
+    }
+}
+</code></pre></pre>
+<p>Semua ekspresi <code>if</code> dimulai dengan kata kunci <code>if</code>, diikuti dengan kondisi. Dalam hal ini, kondisi memeriksa apakah variabel <code>number</code> memiliki nilai kurang dari <code>5</code> atau tidak. Kami menempatkan blok kode untuk dieksekusi jika kondisi tepat <code>true</code> setelah kondisi di dalam kurung kurawal. Blok kode yang terkait dengan kondisi dalam ekspresi terkadang <code>if</code> disebut lengan, seperti lengan dalam ekspresi <code>match</code> yang telah kita bahas di bagian <a href="ch02-00-guessing-game-tutorial.html#membandingkan-tebakan-dengan-angka-rahasia">“Membandingkan Tebakan dengan Angka Rahasia”</a> di Bab 2.</p>
+<p>Opsional, kami juga dapat menyertakan ekspresi <code>else</code>, yang kami pilih untuk dilakukan di sini, untuk memberikan program blok kode alternatif untuk dieksekusi jika kondisi dievaluasi menjadi <code>false</code>. Jika Anda tidak memberikan ekspresi <code>else</code> dan kondisinya adalah <code>false</code>, program hanya akan melewatkan blok <code>if</code> dan melanjutkan ke bit kode berikutnya.</p>
+<pre><code class="language-console">$ cargo run
+   Compiling branches v0.1.0 (file:///projects/branches)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.31s
+     Running `target/debug/branches`
+condition was true
+</code></pre>
+<p>Mari kita coba mengubah nilai <code>number</code> menjadi nilai yang membuat kondisi <code>false</code> untuk melihat apa yang terjadi:</p>
+<pre><code class="language-rust ignore"><span class="boring">fn main() {
+</span>    let number = 7;
+<span class="boring">
+</span><span class="boring">    if number &lt; 5 {
+</span><span class="boring">        println!(&quot;condition was true&quot;);
+</span><span class="boring">    } else {
+</span><span class="boring">        println!(&quot;condition was false&quot;);
+</span><span class="boring">    }
+</span><span class="boring">}
+</span></code></pre>
+<p>Jalankan program lagi, dan lihat hasilnya:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling branches v0.1.0 (file:///projects/branches)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.31s
+     Running `target/debug/branches`
+condition was false
+</code></pre>
+<p>Perlu diperhatikan juga bahwa kondisi dalam kode ini <em>harus</em> berupa <code>bool</code>. Jika kondisinya bukan <code>bool</code>, kita akan mendapatkan error. Misalnya, coba jalankan kode berikut:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><code class="language-rust ignore does_not_compile">fn main() {
+    let number = 3;
+
+    if number {
+        println!(&quot;number was three&quot;);
+    }
+}
+</code></pre>
+<p>Kondisi <code>if</code> dievaluasi ke nilai <code>3</code> saat ini, dan Rust melontarkan kesalahan:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling branches v0.1.0 (file:///projects/branches)
+error[E0308]: mismatched types
+ --&gt; src/main.rs:4:8
+  |
+4 |     if number {
+  |        ^^^^^^ expected `bool`, found integer
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `branches` due to previous error
+</code></pre>
+<p>Kesalahan menunjukkan bahwa Rust mengharapkan <code>bool</code> tetapi mendapat bilangan bulat. Tidak seperti bahasa Ruby dan JavaScript, Rust tidak akan secara otomatis mencoba mengubah tipe non-Boolean menjadi Boolean. Anda harus eksplisit dan selalu menyediakan <code>if</code> dengan Boolean sebagai syaratnya. Jika kita ingin blok kode <code>if</code> berjalan hanya ketika sebuah angka tidak sama dengan <code>0</code>, misalnya, kita dapat mengubah ekspresi <code>if</code> menjadi berikut:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let number = 3;
+
+    if number != 0 {
+        println!(&quot;number was something other than zero&quot;);
+    }
+}
+</code></pre></pre>
+<p>Menjalankan kode ini akan mencetak <code>number was something other than zero</code>.</p>
+<h4 id="menangani-berbagai-kondisi-dengan-else-if"><a class="header" href="#menangani-berbagai-kondisi-dengan-else-if">Menangani Berbagai Kondisi dengan <code>else if</code></a></h4>
+<p>Anda dapat menggunakan beberapa kondisi dengan menggabungkan <code>if</code> dan <code>else</code> dalam sebuah ekspresi <code>else if</code>. Misalnya:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!(&quot;number is divisible by 4&quot;);
+    } else if number % 3 == 0 {
+        println!(&quot;number is divisible by 3&quot;);
+    } else if number % 2 == 0 {
+        println!(&quot;number is divisible by 2&quot;);
+    } else {
+        println!(&quot;number is not divisible by 4, 3, or 2&quot;);
+    }
+}
+</code></pre></pre>
+<p>Program ini memiliki empat kemungkinan jalur yang dapat diambil. Setelah menjalankannya, Anda akan melihat output berikut:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling branches v0.1.0 (file:///projects/branches)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.31s
+     Running `target/debug/branches`
+number is divisible by 3
+</code></pre>
+<p>Saat program ini dijalankan, program ini memeriksa setiap ekspresi <code>if</code> secara bergiliran dan mengeksekusi badan pertama yang kondisinya dievaluasi menjadi <code>true</code>. Perhatikan bahwa meskipun 6 habis dibagi 2, kita tidak melihat output <code>number is divisible by 2</code>, juga tidak melihat teks <code>number is not divisible by 4, 3, or 2</code> dari blok <code>else</code>. Itu karena Rust hanya mengeksekusi blok untuk kondisi <code>true</code> pertama, dan setelah menemukannya, ia bahkan tidak memeriksa sisanya.</p>
+<p>Menggunakan terlalu banyak ekspresi <code>else if</code> dapat mengacaukan kode Anda, jadi jika Anda memiliki lebih dari satu, Anda mungkin ingin memperbaiki kode Anda. Bab 6 menjelaskan konstruksi percabangan Rust yang kuat yang disebut <code>match</code> untuk kasus ini.</p>
+<h4 id="menggunakan-if-dalam-pernyataan-let"><a class="header" href="#menggunakan-if-dalam-pernyataan-let">Menggunakan <code>if</code> dalam Pernyataan <code>let</code></a></h4>
+<p>Karena <code>if</code> adalah ekspresi, kita dapat menggunakannya di sisi kanan pernyataan <code>let</code> untuk menetapkan hasil ke variabel, seperti pada Daftar 3-2.</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let condition = true;
+    let number = if condition { 5 } else { 6 };
+
+    println!(&quot;The value of number is: {number}&quot;);
+}
+</code></pre></pre>
+<p><span class="caption">Daftar 3-2: Menugaskan hasil ekspresi <code>if</code> ke variabel</span></p>
+<p>Variabel <code>number</code> akan terikat pada nilai sesuai hasil ekspresi <code>if</code>. Jalankan kode ini untuk melihat apa yang terjadi:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling branches v0.1.0 (file:///projects/branches)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.30s
+     Running `target/debug/branches`
+The value of number is: 5
+</code></pre>
+<p>Ingatlah bahwa blok kode mengevaluasi ekspresi terakhir di dalamnya, dan angka itu sendiri juga merupakan ekspresi. Dalam hal ini, nilai seluruh ekspresi <code>if</code> bergantung pada blok kode mana yang dieksekusi. Artinya nilai-nilai yang berpotensi dihasilkan dari masing-masing lengan <code>if</code> harus bertipe sama; pada Daftar 3-2, hasil lengan <code>if</code> dan <code>else</code> adalah <code>i32</code> bilangan bulat. Jika tipenya tidak cocok, seperti contoh berikut, kita akan mendapatkan kesalahan:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><code class="language-rust ignore does_not_compile">fn main() {
+    let condition = true;
+
+    let number = if condition { 5 } else { &quot;six&quot; };
+
+    println!(&quot;The value of number is: {number}&quot;);
+}
+</code></pre>
+<p>Saat kami mencoba mengkompilasi kode ini, kami akan mendapatkan kesalahan. Lengan <code>if</code> and <code>else</code> memiliki tipe nilai yang tidak kompatibel, dan Rust menunjukkan dengan tepat di mana menemukan masalah dalam program:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling branches v0.1.0 (file:///projects/branches)
+error[E0308]: `if` and `else` have incompatible types
+ --&gt; src/main.rs:4:44
+  |
+4 |     let number = if condition { 5 } else { &quot;six&quot; };
+  |                                 -          ^^^^^ expected integer, found `&amp;str`
+  |                                 |
+  |                                 expected because of this
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `branches` due to previous error
+</code></pre>
+<p>Ekspresi di blok <code>if</code> dievaluasi ke integer, dan ekspresi di blok <code>else</code> dievaluasi ke string. Ini tidak akan berhasil karena variabel harus memiliki satu tipe, dan Rust perlu mengetahui pada waktu kompilasi tipe variabel <code>number</code> tersebut, secara definitif. Mengetahui tipe <code>number</code> memungkinkan kompiler memverifikasi tipe valid di mana pun kami menggunakan <code>number</code>. Rust tidak akan dapat melakukan itu jika tipe dari <code>number</code> hanya ditentukan pada saat runtime; kompiler akan lebih kompleks dan akan membuat lebih sedikit jaminan tentang kode jika harus melacak beberapa tipe hipotetis untuk variabel apa pun.</p>
+<h3 id="pengulangan-dengan-loop"><a class="header" href="#pengulangan-dengan-loop">Pengulangan dengan Loop</a></h3>
+<p>Seringkali berguna untuk mengeksekusi blok kode lebih dari sekali. Untuk tugas ini, Rust menyediakan beberapa loop, yang akan dijalankan melalui kode di dalam loop body sampai akhir dan kemudian segera mulai kembali dari awal. Untuk bereksperimen dengan perulangan, mari buat proyek baru bernama <em>loops</em>.</p>
+<p>Rust memiliki tiga jenis loop: <code>loop</code>, <code>while</code>, dan <code>for</code>. Mari kita coba masing-masing.</p>
+<h4 id="mengulang-kode-dengan-loop"><a class="header" href="#mengulang-kode-dengan-loop">Mengulang Kode dengan <code>loop</code></a></h4>
+<p>Kata kunci <code>loop</code> memberi tahu Rust untuk mengeksekusi blok kode berulang kali selamanya atau sampai Anda secara eksplisit menyuruhnya berhenti.</p>
+<p>Sebagai contoh, ubah file <em>src/main.rs</em> di direktori <em>loops</em> Anda menjadi seperti ini:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><code class="language-rust ignore">fn main() {
+    loop {
+        println!(&quot;again!&quot;);
+    }
+}
+</code></pre>
+<p>Saat kita menjalankan program ini, kita akan melihat <code>again!</code> dicetak terus menerus sampai kita menghentikan program secara manual. Sebagian besar terminal mendukung pintasan keyboard <span class="keystroke">ctrl-c</span> untuk menginterupsi program yang macet terus-menerus. Cobalah:</p>
+<!-- manual-regeneration
+cd listings/ch03-common-programming-concepts/no-listing-32-loop
+cargo run
+CTRL-C
+-->
+<pre><code class="language-console">$ cargo run
+   Compiling loops v0.1.0 (file:///projects/loops)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
+     Running `target/debug/loops`
+again!
+again!
+again!
+again!
+^Cagain!
+</code></pre>
+<p>Simbol <code>^C</code> mewakili tempat Anda menekan <span class="keystroke">ctrl-c</span>. Anda mungkin atau mungkin tidak melihat kata <code>again!</code> yang dicetak setelah <code>^C</code>, tergantung di mana kode berada di loop saat menerima sinyal interupsi.</p>
+<p>Untungnya, Rust juga menyediakan cara untuk keluar dari loop menggunakan kode. Anda dapat menempatkan kata kunci <code>break</code> di dalam loop untuk memberi tahu program kapan harus berhenti menjalankan loop. Ingatlah bahwa kita melakukan ini dalam permainan tebak-tebakan di bagian “Berhenti Setelah Menebak dengan Benar” <a href="ch02-00-guessing-game-tutorial.html#berhenti-setelah-tebakan-yang-benar">“Quitting After a Correct Guess”</a> pada Bab 2 untuk keluar dari program saat pengguna memenangkan permainan dengan menebak angka yang benar.</p>
+<p>Kami juga menggunakan <code>continue</code> dalam permainan tebak-tebakan, yang dalam satu loop memberi tahu program untuk melewati kode yang tersisa dalam iterasi loop ini dan melanjutkan ke iterasi berikutnya.</p>
+<h4 id="mengembalikan-nilai-dari-loop"><a class="header" href="#mengembalikan-nilai-dari-loop">Mengembalikan Nilai dari Loop</a></h4>
+<p>Salah satu kegunaan <code>loop</code> adalah mencoba kembali operasi yang Anda tahu mungkin gagal, seperti memeriksa apakah <em>thread</em> telah menyelesaikan tugasnya. Anda mungkin juga perlu meneruskan hasil operasi itu keluar dari loop ke seluruh kode Anda. Untuk melakukan ini, Anda bisa menambahkan nilai yang ingin Anda kembalikan setelah ekspresi <code>break</code> yang Anda gunakan untuk menghentikan perulangan; nilai itu akan dikembalikan dari loop sehingga Anda dapat menggunakannya, seperti yang ditunjukkan di sini:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut counter = 0;
+
+    let result = loop {
+        counter += 1;
+
+        if counter == 10 {
+            break counter * 2;
+        }
+    };
+
+    println!(&quot;The result is {result}&quot;);
+}
+</code></pre></pre>
+<p>Sebelum loop, kami mendeklarasikan variabel bernama <code>counter</code> dan menginisialisasi ke <code>0</code>. Kemudian kami mendeklarasikan variabel bernama <code>result</code> untuk menampung nilai yang dikembalikan dari loop. Pada setiap iterasi loop, kita menambahkan <code>1</code> variabel counter, lalu memeriksa apakah <code>counter</code> sama dengan <code>10</code>. Saat itu, kami menggunakan kata kunci <code>break</code> dengan nilai <code>counter * 2</code>. Setelah perulangan, kita menggunakan titik koma untuk mengakhiri pernyataan yang menetapkan nilai ke <code>result</code>. Terakhir, kami mencetak nilai dalam <code>result</code>, yang dalam hal ini adalah <code>20</code>.</p>
+<h4 id="label-loop-untuk-disambiguasi-antara-beberapa-loop"><a class="header" href="#label-loop-untuk-disambiguasi-antara-beberapa-loop">Label Loop untuk Disambiguasi Antara Beberapa Loop</a></h4>
+<p>Jika Anda memiliki loop di dalam loop, <code>break</code> dan <code>continue</code> diterapkan ke loop terdalam pada saat itu. Secara opsional, Anda dapat menentukan <em>label loop</em> pada loop yang kemudian dapat Anda gunakan dengan <code>break</code> atau <code>continue</code> untuk menentukan bahwa kata kunci tersebut berlaku untuk loop berlabel, bukan loop terdalam. Label loop harus dimulai dengan kutip tunggal. Berikut adalah contoh dengan dua loop bersarang:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!(&quot;count = {count}&quot;);
+        let mut remaining = 10;
+
+        loop {
+            println!(&quot;remaining = {remaining}&quot;);
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!(&quot;End count = {count}&quot;);
+}
+</code></pre></pre>
+<p>Loop luar memiliki label <code>'counting_up</code>, dan akan menghitung dari 0 hingga 2. Loop dalam tanpa label menghitung mundur dari 10 hingga 9. <code>break</code> pertama yang tidak menentukan label hanya akan keluar dari loop di dalam. Pernyataan <code>break 'counting_up;</code> akan keluar dari loop luar. Kode ini mencetak:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling loops v0.1.0 (file:///projects/loops)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.58s
+     Running `target/debug/loops`
+count = 0
+remaining = 10
+remaining = 9
+count = 1
+remaining = 10
+remaining = 9
+count = 2
+remaining = 10
+End count = 2
+</code></pre>
+<h4 id="loop-bersyarat-dengan-while"><a class="header" href="#loop-bersyarat-dengan-while">Loop Bersyarat dengan <code>while</code></a></h4>
+<p>Suatu program seringkali perlu mengevaluasi suatu kondisi dalam satu loop. Saat kondisinya <code>true</code>, loop berjalan. Ketika kondisi berhenti menjadi <code>true</code>, program memanggil <code>break</code>, menghentikan perulangan. Dimungkinkan untuk menerapkan perilaku seperti ini menggunakan kombinasi <code>loop</code>, <code>if</code>, <code>else</code>, dan <code>break</code>; Anda dapat mencobanya sekarang dalam sebuah program, jika Anda mau. Namun, pola ini sangat umum sehingga Rust memiliki konstruksi bahasa bawaan untuknya, yang disebut loop <code>while</code>. Dalam Daftar 3-3, kami menggunakan <code>while</code> untuk mengulang program tiga kali, menghitung mundur setiap iterasi, dan kemudian, setelah pengulangan, cetak pesan dan keluar.</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let mut number = 3;
+
+    while number != 0 {
+        println!(&quot;{number}!&quot;);
+
+        number -= 1;
+    }
+
+    println!(&quot;LIFTOFF!!!&quot;);
+}
+</code></pre></pre>
+<p><span class="caption">Daftar 3-3: Menggunakan perulangan <code>while</code> untuk menjalankan kode saat kondisi benar</span></p>
+<p>Konstruk ini menghilangkan banyak sarang yang diperlukan jika Anda menggunakan <code>loop</code>, <code>if</code>, <code>else</code>, dan <code>break</code>, dan lebih jelas. Saat kondisi bernilai <code>true</code>, kode berjalan; jika tidak, itu keluar dari loop.</p>
+<h4 id="pengulangan-melalui-koleksi-dengan-for"><a class="header" href="#pengulangan-melalui-koleksi-dengan-for">Pengulangan melalui Koleksi dengan <code>for</code></a></h4>
+<p>Anda dapat memilih untuk menggunakan konstruk <code>while</code> untuk mengulang elemen koleksi, seperti array. Sebagai contoh, loop pada Daftar 3-4 mencetak setiap elemen dalam array <code>a</code>.</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = [10, 20, 30, 40, 50];
+    let mut index = 0;
+
+    while index &lt; 5 {
+        println!(&quot;the value is: {}&quot;, a[index]);
+
+        index += 1;
+    }
+}
+</code></pre></pre>
+<p><span class="caption">Daftar 3-4: Mengulang setiap elemen koleksi menggunakan loop <code>while</code></span></p>
+<p>Di sini, kode dihitung melalui elemen-elemen dalam array. Ini dimulai pada index <code>0</code>, dan kemudian berulang hingga mencapai indeks terakhir dalam array (yaitu, ketika <code>index &lt; 5</code> tidak lagi <code>true</code>). Menjalankan kode ini akan mencetak setiap elemen dalam array:</p>
+<pre><code class="language-console">$ cargo run
+   Compiling loops v0.1.0 (file:///projects/loops)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.32s
+     Running `target/debug/loops`
+the value is: 10
+the value is: 20
+the value is: 30
+the value is: 40
+the value is: 50
+</code></pre>
+<p>Kelima nilai array muncul di terminal, seperti yang diharapkan. Meskipun <code>index</code> akan mencapai nilai <code>5</code> di beberapa titik, loop berhenti mengeksekusi sebelum mencoba mengambil nilai keenam dari array.</p>
+<p>Namun, pendekatan ini rawan kesalahan; dapat menyebabkan program kita menjadi panik jika nilai indeks atau kondisi pengujian salah. Misalnya, jika Anda mengubah definisi array <code>a</code> menjadi empat elemen tetapi lupa memperbarui kondisinya menjadi <code>while index &lt; 4</code>, kode akan panik. Ini juga lambat, karena kompiler menambahkan kode runtime untuk melakukan pemeriksaan kondisional apakah indeks berada dalam batas array pada setiap iterasi melalui loop.</p>
+<p>Sebagai alternatif yang lebih ringkas, Anda bisa menggunakan perulangan <code>for</code> dan mengeksekusi beberapa kode untuk setiap item dalam koleksi. Loop <code>for</code> terlihat seperti kode pada Daftar 3-5.</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    let a = [10, 20, 30, 40, 50];
+
+    for element in a {
+        println!(&quot;the value is: {element}&quot;);
+    }
+}
+</code></pre></pre>
+<p><span class="caption">Daftar 3-5: Mengulang setiap elemen koleksi menggunakan loop <code>for</code></span></p>
+<p>Saat kita menjalankan kode ini, kita akan melihat output yang sama seperti pada Daftar 3-4. Lebih penting lagi, kami sekarang telah meningkatkan keamanan kode dan menghilangkan kemungkinan bug yang mungkin dihasilkan dari melampaui akhir array atau tidak cukup jauh dan kehilangan beberapa item.</p>
+<p>Dengan menggunakan <code>for</code>, Anda tidak perlu mengingat untuk mengubah kode lain jika Anda mengubah jumlah nilai dalam array, seperti yang Anda lakukan dengan metode yang digunakan pada Daftar 3-4.</p>
+<p>Keamanan dan keringkasan <code>for</code> menjadikannya konstruksi loop yang paling umum digunakan di Rust. Bahkan dalam situasi di mana Anda ingin menjalankan beberapa kode beberapa kali, seperti dalam contoh hitung mundur yang menggunakan perulangan <code>while</code> di Daftar 3-3, kebanyakan Rustacean akan menggunakan perulangan <code>for</code>. Cara melakukannya adalah dengan menggunakan <code>Range</code>, yang disediakan oleh pustaka standar, yang menghasilkan semua angka secara berurutan mulai dari satu angka dan diakhiri sebelum angka lainnya.</p>
+<p>Berikut tampilan hitungan mundur menggunakan perulangan <code>for</code> dan metode lain yang belum kita bicarakan, <code>rev</code>, untuk membalikkan rentang:</p>
+<p><span class="filename">Nama file: src/main.rs</span></p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    for number in (1..4).rev() {
+        println!(&quot;{number}!&quot;);
+    }
+    println!(&quot;LIFTOFF!!!&quot;);
+}
+</code></pre></pre>
+<p>Kode ini sedikit lebih bagus, bukan?</p>
+<h2 id="ringkasan"><a class="header" href="#ringkasan">Ringkasan</a></h2>
+<p>Anda berhasil! Ini adalah bab yang cukup besar: Anda belajar tentang variabel, tipe data skalar dan <em>compound</em>, fungsi, komentar, ekspresi <code>if</code>, dan loop! Untuk berlatih dengan konsep yang dibahas dalam bab ini, cobalah membuat program untuk melakukan hal berikut:</p>
+<ul>
+<li>Mengkonversi suhu antara Fahrenheit dan Celsius.</li>
+<li>Hasilkan angka Fibonacci ke-<em>n</em> .</li>
+<li>Cetak lirik lagu Natal “The Twelve Days of Christmas”, memanfaatkan pengulangan dalam lagu tersebut.</li>
+</ul>
+<p>Saat Anda siap untuk melanjutkan, kita akan berbicara tentang konsep di Rust yang tidak umum ada dalam bahasa pemrograman lain: kepemilikan (<em>ownership</em>).</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ch03-04-comments.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="ch04-00-understanding-ownership.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ch03-04-comments.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="ch04-00-understanding-ownership.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="ferris.js"></script>
+    </body>
+</html>
